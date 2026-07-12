@@ -18,7 +18,7 @@ AI 驱动的科学教育活动智能创作框架
 ## 技能
 
 ### 1. `research-lineage`（研究脉络梳理）
-研究脉络智能梳理引擎。集成 CiteSpace/VOSviewer 文献计量分析、PRISMA 系统筛选与 CoE 零误引引用验证。
+研究脉络智能梳理引擎。集成 CiteSpace/VOSviewer 文献计量分析、PRISMA 系统筛选与零误引引用验证。
 
 **核心特性：**
 - 六轮联合检索（网页搜索 + arXiv + Google Scholar + Semantic Scholar + CrossRef + 知网自动化）
