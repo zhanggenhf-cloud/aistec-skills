@@ -1,10 +1,14 @@
+[🌐 中文](README.zh.md) | English
+
+---
+
 # AISTEC Skills
 
 AI-driven Integrated Science Education Content Creation Framework — OpenClaw AgentSkills
 
 ## Overview
 
-This repository contains three OpenClaw AgentSkills that power the AISTEC (AI-driven Integrated Science Education Content Creation Framework) system described in the accompanying paper.
+This repository contains three OpenClaw AgentSkills that power the AISTEC (AI-driven Integrated Science Education Content Creation Framework) system.
 
 The framework integrates:
 - **Chain-of-Evidence (CoE) zero-misattribution citation verification** via multi-API cross-audit (I3 audit: Semantic Scholar + arXiv + CrossRef)
@@ -43,10 +47,6 @@ Template extraction and migration learning engine. Converts historical activity 
 - Fairness audit (cultural responsiveness, gender equity, accessibility, socioeconomic inclusion)
 - Cost-benefit analysis (per-capita cost, time efficiency, educational ROI)
 - Multi-scenario optimization (Museum / School / Outdoor / Workshop)
-
-## Paper
-
-See `AISTEC_v2_modified.md` for the full academic paper describing the framework architecture, technical paths, and application scenarios.
 
 ## Installation
 
