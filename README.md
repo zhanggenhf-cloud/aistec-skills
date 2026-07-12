@@ -10,7 +10,7 @@ AI-driven Integrated Science Education Content Creation Framework
 This repository contains three OpenClaw AgentSkills that power the AISTEC (AI-driven Integrated Science Education Content Creation Framework) system.
 
 The framework integrates:
-- **Chain-of-Evidence (CoE) zero-misattribution citation verification** via multi-API cross-audit (I3 audit: Semantic Scholar + arXiv + CrossRef)
+- **zero-misattribution citation verification** via multi-API cross-audit (I3 audit: Semantic Scholar + arXiv + CrossRef)
 - **13 pedagogical frameworks** auto-matched by decision tree (5E, PBL, Design Thinking, POE, 7E, etc.)
 - **Internal formative assessment feedback** — SMEALOS four-dimension evaluation used as system-internal auto-correction, not exposed to end users
 - **SSI termination condition** — automatic halt when topics involve scientific controversy, ethical decisions, or social policy
