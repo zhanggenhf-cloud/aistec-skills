@@ -18,7 +18,7 @@ The framework integrates:
 ## Skills
 
 ### 1. `research-lineage`
-Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric analysis with PRISMA systematic screening and CoE zero-misattribution citation verification.
+Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric analysis with PRISMA systematic screening and zero-misattribution citation verification.
 
 **Key features:**
 - 6-round joint retrieval (WebSearch + arXiv + Scholar + Semantic Scholar + CrossRef + CNKI browser automation)
