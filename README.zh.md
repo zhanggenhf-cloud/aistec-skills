@@ -1,10 +1,9 @@
-English | [🌐 中文](README.zh.md)
 
 ---
 
 # AISTEC 技能集
 
-AI 驱动的科学教育活动智能创作框架 —— OpenClaw AgentSkills
+AI 驱动的科学教育活动智能创作框架
 
 ## 概述
 
