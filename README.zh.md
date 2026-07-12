@@ -24,7 +24,7 @@ AI 驱动的科学教育活动智能创作框架
 - 六轮联合检索（网页搜索 + arXiv + Google Scholar + Semantic Scholar + CrossRef + 知网自动化）
 - PI 引用图构建（种子论文 → 2 跳引文图 → 精英池，通过 LLM 双层评分筛选）
 - CoE 六步验证法（A→B→C→D→E→F）：构建引用图 → API 筛查 → 书目交叉核对 → I3 多 API 审计 → LLM 摘要蕴涵验证 → 时间线一致性 + 上游库污染检测
-- 五类幻觉检测（TF/PAC/IH/PH/SH），含内联证据标签 `{source}`
+- 五类幻觉检测（TF/PAC/IH/PH/SH）
 
 ### 2. `science-edu-activity`（科学教育活动设计）
 科学教育活动方案生成器。基于 CIC「情境-探究-建构」三维权模型和 ACPRE「四维度五步」认知心理学设计模型。
