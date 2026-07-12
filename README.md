@@ -24,7 +24,7 @@ Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric
 - 6-round joint retrieval (WebSearch + arXiv + Scholar + Semantic Scholar + CrossRef + CNKI browser automation)
 - PI citation graph construction (seed papers → 2-hop citation graph → elite pool via LLM dual scoring)
 - CoE 6-step verification (A→B→C→D→E→F): graph building → API screening → bibliographic cross-check → I3 multi-API audit → LLM summary entailment → timeline consistency + upstream contamination detection
-- 5-class hallucination detection (TF/PAC/IH/PH/SH) with inline evidence tags `{source}`
+- 5-class hallucination detection (TF/PAC/IH/PH/SH) 
 
 ### 2. `science-edu-activity`
 Science education activity plan generator. Built on CIC "Context-Inquiry-Construction" triadic model and ACPRE "4-dimension 5-step" cognitive psychology design model.
