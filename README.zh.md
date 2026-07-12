@@ -10,7 +10,7 @@ AI 驱动的科学教育活动智能创作框架
 本仓库包含三个 OpenClaw AgentSkills，为 AISTEC（AI 驱动的科学教育活动智能创作框架）提供核心能力。
 
 该框架整合了：
-- **CoE 零误引引用验证** —— 通过多 API 交叉审计（I3 审计：Semantic Scholar + arXiv + CrossRef）确保引用可追溯
+- **零误引引用验证** —— 通过多 API 交叉审计（I3 审计：Semantic Scholar + arXiv + CrossRef）确保引用可追溯
 - **13 种教学法框架** —— 通过决策树自动匹配（5E、PBL、Design Thinking、POE、7E 等）
 - **内部形成性评估反馈** —— SMEALOS 四维度评估作为系统内部自动修正机制，不直接向用户暴露评估量规
 - **SSI 终止条件** —— 当主题涉及科学争议、伦理决策或社会政策时自动停止生成
