@@ -4,7 +4,7 @@
 
 # AISTEC Skills
 
-AI-driven Integrated Science Education Content Creation Framework
+AI-driven Integrated Science & Technology Education Content Creation Framework
 ## Overview
 
 This repository contains three OpenClaw AgentSkills that power the AISTEC (AI-driven Integrated Science Education Content Creation Framework) system.
