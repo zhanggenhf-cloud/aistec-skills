@@ -20,24 +20,11 @@ Use this skill when:
 
 Follow these phases in order:
 
-### Phase 0: Theoretical Framework Selection (CIC Model)
+### Phase 0: Theoretical Framework Selection
 
-Before formally designing the activity, perform macro-level positioning based on the **"Context-Inquiry-Construction" (CIC) Triadic Theoretical Model**. The CIC model integrates Constructivist learning theory, Situated Cognition theory, Inquiry-Based Learning theory, and Cognitive Psychology, providing a theoretical foundation for activity design.
+Before formally designing the activity, perform macro-level positioning based on established learning theories including Constructivism, Situated Cognition, Inquiry-Based Learning, and Cognitive Psychology.
 
-**CIC Three-Dimension Positioning Check:**
-
-| Dimension | Key Questions | Design Points |
-|-----------|--------------|---------------|
-| **Context** | What environment does learning occur in? | Physical context (exhibits/space), Social context (interaction/collaboration), Cultural context (scientific atmosphere) |
-| **Inquiry** | How do learners conduct scientific inquiry? | Problem-driven, hypothesis testing, evidence collection, analysis & explanation, communication & reflection (aligned with NRC's eight Science and Engineering Practices) |
-| **Construction** | What learning outcomes are expected? | Conceptual understanding, skill acquisition, attitude change, identity formation |
-
-**Integrating CIC Operating Mechanisms:**
-- **Context Stimulates Inquiry**: Well-designed physical contexts (interactive exhibits, immersive spaces) spark curiosity; social contexts (family dialogue, peer collaboration) provide cognitive scaffolding; cultural contexts give inquiry meaning and value.
-- **Inquiry Promotes Construction**: Under context-driven motivation, learners engage in inquiry activities, promoting cognitive construction and scientific thinking through the complete scientific process.
-- **Construction Feeds Back to Context**: Successful construction experiences enhance scientific self-efficacy, forming a positive learning cycle.
-
-**Activity Type Positioning** (based on the dissertation's classification system):
+**Activity Type Positioning**:
 
 | Activity Type | Core Goal | Typical Forms | Suitable Scenarios |
 |--------------|-----------|---------------|------------------|
@@ -47,7 +34,7 @@ Before formally designing the activity, perform macro-level positioning based on
 | **Comprehensive-Development** | Holistic scientific literacy improvement | STEM projects, museum-school partnership courses, family science days, maker activities | Systematic educational goals |
 
 **Output Requirement**: In the "Activity Summary," explicitly state:
-> This activity is designed based on the **CIC Theoretical Model**, positioned as a **[Activity Type]**, stimulating **[Inquiry Method]** through **[Context Description]**, promoting learners' development in **[Construction Goal]**.
+> This activity is positioned as a **[Activity Type]**, stimulating **[Inquiry Method]** through **[Context Description]**, promoting learners' development in **[Learning Goal]**.
 
 ### Phase 1: Input Analysis & Classification
 
@@ -69,45 +56,24 @@ First, determine the input type:
 
 ### Phase 2: Knowledge Deconstruction
 
-Load [references/knowledge-deconstruction.md](references/knowledge-deconstruction.md) and apply the 5-stage deconstruction process, enhanced with the **"Four-Dimension Five-Step" (ACPRE) Educational Activity Design Model** from Cognitive Psychology:
+Load [references/knowledge-deconstruction.md](references/knowledge-deconstruction.md) and apply the 5-stage deconstruction process:
 
-**ACPRE 四维度目标设定**（每个活动应统筹考虑）：
-
-| 维度 | 目标 | 示例 |
-|------|------|------|
-| **认知功能奠基** | 优化底层认知能力（注意力、工作记忆、执行功能） | 脑科学训练营：通过"找不同""听觉数字广度"等游戏化任务训练核心执行功能 |
-| **科学概念建构** | 围绕核心概念形成深刻、可迁移的正确图式 | 科学玩家：通过制作甩干机理解离心力概念 |
-| **心理情感融入** | 培养好奇心、求知欲、抗挫折能力、合作精神 | 身心奇旅：通过沙盘游戏认识情绪，培养社会情绪能力 |
-| **科学融合应用** | 将单一知识点延伸为综合应用项目，解决真实问题 | 青少年科创赛事：基于PBL的深度应用认知心理学原理的长期探究 |
-
-**ACPRE 五步操作流程**（与教学框架融合）：
-
-| 步骤 | 名称 | 核心任务 | 认知心理学基础 | 与CIC模型的对接 |
-|------|------|---------|--------------|----------------|
-| **A** | 激活 (Activate) | 链接经验，制造冲突，激发探究动机 | 图式激活、认知冲突 | 情境维度：触发情境效应 |
-| **C** | 组块 (Chunk) | 分解任务，搭建脚手架，将复杂问题分解为可操作步骤 | 工作记忆容量、认知负荷理论 | 探究维度：组织探究过程 |
-| **P** | 实践 (Practice) | 具身经验，主动探究，通过多感官互动促进深度编码 | 具身认知、情景记忆优于语义记忆 | 探究维度：实施探究过程 |
-| **R** | 反思 (Reflect) | 引导提炼，形成图式，将具体经验上升为抽象概念 | 图式理论、概念图可视化 | 建构维度：促进意义建构 |
-| **E** | 拓展 (Extend) | 创设情境，迁移应用，在新情境中应用新知 | 情境迁移、分布式认知 | 建构维度：实现知识迁移 |
-
-1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives (aligned with ACPRE four dimensions)
+1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives
 2. **Knowledge Breakdown** — Deconstruct into hierarchical knowledge nodes with real-world examples and common misconceptions
-3. **Instructional Sequencing** — Design pedagogical flow using one of the following frameworks (auto-select based on topic + constraints + ACPRE mapping). **If the topic involves ethical controversy, scientific policy, or socio-scientific issues, terminate immediately and do not proceed.**
+3. **Instructional Sequencing** — Design pedagogical flow using one of the following frameworks (auto-select based on topic + constraints). **If the topic involves ethical controversy, scientific policy, or socio-scientific issues, terminate immediately and do not proceed.**
    - **5E Model** (Engage→Explore→Explain→Elaborate→Evaluate) — 适合探究式科学概念
    - **4-Stage Flow** (Hook→Explore→Discuss→Apply) — 适合博物馆/科技馆互动活动
    - **PBL (Project-Based Learning)** — 适合真实世界问题解决、跨学科主题
    - **Design Thinking** — 适合工程设计、创客活动
    - **IBL (Inquiry-Based Learning)** — 适合开放探究、科学过程技能训练
-   - **DIE Model** (Deconstruct→Inquire→Explain) — 适合解构日常认知、重建科学理解的展品教育活动
-   - **IADE Learning Sheet** (Introduce→Activity→Discuss→Extend) — 适合馆校合作中的学习支持工具设计
-   - **Guided Play** — 适合低龄儿童（2-7岁），介于自由游戏和直接教学之间
+   - **Guided Play** — 适合低龄儿童（2-7岁），基于引导式游戏研究（Hirsh-Pasek et al. 等）
 4. **Activity Matching** — Match each knowledge node to appropriate activity types (experiments, models, games, etc.)
 5. **Differentiation** — Create basic/advanced/challenge variants using **UDL (Universal Design for Learning)** principles:
    - 多元表征：同一概念用视觉/听觉/动手/文字多种方式呈现
    - 多方式表达：参与者可以用说/写/画/做/演等多种方式展示学习成果
    - 多方式参与：提供不同难度、不同兴趣切入点的参与路径
 6. **STEM/STEAM Integration Check** — If topic allows, identify cross-disciplinary connections and add integration points
-7. **Assessment Alignment** — Map learning objectives to formative assessment checkpoints (see below), aligned with SMEALOS four dimensions
+7. **Assessment Alignment** — Map learning objectives to formative assessment checkpoints
 
 ### Phase 3: Activity Plan Generation
 
@@ -118,7 +84,7 @@ Load [references/output-schema.md](references/output-schema.md) and generate the
 | 步骤 | 名称 | 任务 | 输出 |
 |------|------|------|------|
 | **分析** | Analysis | 展品/概念教育价值分析，明确科学概念、探究空间、目标受众、课标对应 | 需求分析报告 |
-| **设计** | Design | 基于CIC-ACPRE模型进行系统设计，统筹四维目标、五步流程 | 活动设计方案 |
+| **设计** | Design | 进行系统设计，统筹学习目标与教学流程 | 活动设计方案 |
 | **开发** | Development | 开发活动方案、学生手册、教师指南、评估工具、数字资源 | 教育资源包 |
 | **实施** | Implementation | 试点实施，收集数据和反馈，检验可行性和有效性 | 实施报告 |
 | **评估** | Evaluation | 过程性评估+总结性评估+延时性评估，持续改进 | 评估报告与修订版 |
@@ -133,7 +99,7 @@ Load [references/output-schema.md](references/output-schema.md) and generate the
 
 **混合式学习模式**（当涉及数字化资源时）：
 - **线上预备+线下体验+线上深化**：参观前通过线上平台预习，参观中实地体验，参观后通过线上深化探索
-- 知识保持率比纯线下模式高出18.7%（博士论文实证数据）
+- 混合式学习模式可结合线上预习与线下体验，提升学习效果与知识保持率
 
 **家庭学习场景设计**（Guided Play 引导式游戏）：
 - **故事情境化**：将科学探究融入故事情境，激发儿童参与动机
@@ -144,11 +110,11 @@ Load [references/output-schema.md](references/output-schema.md) and generate the
 Generated plan includes:
 
 - Metadata (name, age, duration, group size, discipline, activity type)
-- Executive summary with CIC positioning and safety highlights
-- **Theoretical Framework** — CIC model positioning and ACPRE dimension mapping
-- SMART learning objectives (Bloom's taxonomy aligned + ACPRE four dimensions)
+- Executive summary with theoretical positioning and safety highlights
+- **Theoretical Framework** — Explicitly state which framework is used and why
+- SMART learning objectives (Bloom's taxonomy aligned)
 - Background knowledge (science principles + applications + verified literature references)
-- **Pedagogical Framework Selection** — Explicitly state which framework is used and why (5E / 4-Stage / PBL / Design Thinking / IBL / DIE / IADE / Guided Play)
+- **Pedagogical Framework Selection** — Explicitly state which framework is used and why (5E / 4-Stage / PBL / Design Thinking / IBL / Guided Play)
 - **UDL Differentiation Plan** — How the activity supports diverse learners (multiples of representation, expression, engagement)
 - Framework-specific activity flow with facilitator guides
   - *5E Model*: Engage→Explore→Explain→Elaborate→Evaluate (each with detailed facilitation)
@@ -156,11 +122,8 @@ Generated plan includes:
   - *PBL*: Problem→Investigate→Design→Present→Reflect (project-based)
   - *Design Thinking*: Empathize→Define→Ideate→Prototype→Test (engineering)
   - *IBL*: Question→Hypothesis→Investigate→Analyze→Conclude (open inquiry)
-  - *DIE*: Deconstruct→Inquire→Explain (deconstructing everyday cognition, rebuilding scientific understanding)
-  - *IADE*: Introduce→Activity→Discuss→Extend (museum-school partnership learning sheet)
-  - *Guided Play*: Free exploration → Guided questioning → Structured reflection → Family sharing (for ages 2-7)
+  - *Guided Play*: Free exploration → Guided questioning → Structured reflection → Family sharing (for ages 2-7, based on Hirsh-Pasek et al.)
 - **Internal Formative Assessment Feedback** — Embedded assessment logic used internally to auto-correct the plan before output (not directly shown to user; see Internal Feedback Loop section)
-- **Internal SMEALOS Evaluation Feedback** — Four-dimensional evaluation used internally to auto-correct the plan before output (not directly shown to user)
 - **STEM/STEAM Integration Map** (if applicable) — Cross-disciplinary connections
 - Complete materials list with sourcing info and cost estimates
 - Venue requirements and setup instructions
@@ -173,13 +136,10 @@ Generated plan includes:
 
 ### Phase 4: Quality Assurance
 
-Apply multi-layer error correction from [references/error-correction.md](references/error-correction.md), enhanced with CIC-ACPRE integration checks:
+Apply multi-layer error correction from [references/error-correction.md](references/error-correction.md):
 
 **Self-Correction Checklist:**
 - [ ] All required sections present (see output schema)
-- [ ] **CIC理论定位已明确**（情境维度、探究维度、建构维度已说明）
-- [ ] **ACPRE四维度目标已统筹**（认知功能奠基、科学概念建构、心理情感融入、科学融合应用）
-- [ ] **ACPRE五步流程完整**（激活→组块→实践→反思→拓展）
 - [ ] **活动类型已明确**（知识传递型/技能培养型/兴趣激发型/综合发展型）
 - [ ] Scientific concepts are accurate (cross-reference Tier 1 sources)
 - [ ] **关键科学概念已通过 CoE 文献验证（六步验证法：A→B→C→D→E→F）**
@@ -195,7 +155,6 @@ Apply multi-layer error correction from [references/error-correction.md](referen
 - [ ] **Pedagogical framework selection is justified** (why this framework for this topic?)
 - [ ] **UDL differentiation covers all three principles** (representation, expression, engagement)
 - [ ] **Internal formative assessment feedback has triggered auto-correction** where gaps were found
-- [ ] **Internal SMEALOS evaluation has triggered auto-correction** where gaps were found
 - [ ] Safety considerations identified and addressed
 - [ ] Materials are realistically obtainable
 - [ ] Time estimates are realistic
@@ -266,9 +225,7 @@ Generate output in standard Markdown following the template in [references/outpu
 ```
 主题是否涉及伦理争议/社会决策/科学争议？
   ├─ 是 → **终止生成**。该主题涉及社会性科学议题（SSI），内容不宜输出，停止方案生成。
-  └─ 否 → 主题是否涉及解构日常认知、重建科学理解？
-      ├─ 是 → DIE框架（解构-探究-解释）
-      └─ 否 → 主题是否涉及工程设计/制作实物？
+  └─ 否 → 主题是否涉及工程设计/制作实物？
           ├─ 是 → Design Thinking（设计思维）或 Engineering Design Process
           └─ 否 → 是否需要解决真实世界问题？
               ├─ 是 → PBL（项目式学习）或 POE/PEE（预测-观察-解释）
@@ -279,12 +236,10 @@ Generate output in standard Markdown following the template in [references/outpu
                   │       └─ 标准探究 → 5E
                   └─ 否 → 是否需要连接生活经验/真实情境？
                       ├─ 是 → REACT（关联-体验-应用-协作-迁移）
-                      └─ 否 → 是否为馆校合作项目？
-                          ├─ 是 → IADE（引入-活动-讨论-拓展）
-                          └─ 否 → 目标受众是否为低龄儿童（2-7岁）？
-                              ├─ 是 → Guided Play（引导式游戏）
-                              └─ 否 → 4阶段流程（博物馆/科技馆互动）
-                                  └─ 需要预测环节？ → POE/PEE
+                      └─ 否 → 目标受众是否为低龄儿童（2-7岁）？
+                          ├─ 是 → Guided Play（引导式游戏）
+                          └─ 否 → 4阶段流程（博物馆/科技馆互动）
+                              └─ 需要预测环节？ → POE/PEE
 ```
 
 ### 框架特征对照（扩展版）
@@ -303,50 +258,12 @@ Generate output in standard Markdown following the template in [references/outpu
 | **UbD** | 确定目标→确定评估→设计学习 | 逆向设计课程 | 全年龄 | 灵活 | 理解深度 | Wiggins & McTighe, 2005 |
 | **GRRF** | 示范→引导→协作→独立 | 技能逐步掌握 | 全年龄 | 灵活 | 技能熟练度 | Fisher & Frey, 2013 |
 | **IDM** | 驱动问题→支持问题→形成性任务→总结性任务 | 历史/社会探究 | 初中+ | 数周 | 探究能力 | Grant et al., 2017 |
-| **STREAMING** | 科学+技术+机器人+工程+AI+数学+情商+包容+游戏化 | 全面STEM整合 | 小学+ | 灵活 | 综合能力 | Drigas & Kefalis, 2024 |
-| **DIE** | 解构→探究→解释 | 解构日常认知、展品教育 | 小学+ | 30-60min | 概念转变 | 科技馆教育实践 |
-| **IADE** | 引入→活动→讨论→拓展 | 馆校合作学习单 | 小学+ | 45-90min | 探究能力 | 郝杏丽等 |
-| **Guided Play** | 自由探索→引导提问→结构化反思→家庭分享 | 低龄儿童（2-7岁） | 学龄前 | 20-45min | 概念理解 | 刘芷廷等 |
+| **Guided Play** | 自由探索→引导提问→结构化反思→家庭分享 | 低龄儿童（2-7岁） | 学龄前 | 20-45min | 概念理解 | Hirsh-Pasek et al. |
 
-### 新增框架详解（博士论文整合）
-
-#### DIE（解构-探究-解释）
-由曹文思等学者提出，借鉴探究式学习理念，将教学过程分为三个阶段。特别适合**解构学习者对科学现象的日常认知**，重建科学理解。
-
-**流程**：
-1. **解构 (Deconstruct)**：通过观察现象"解构"日常认知，发现隐藏的科学原理
-   - 例：观察三棱镜分解白光，"解构"对颜色的日常认知
-2. **探究 (Inquire)**：围绕核心问题开展实验探究，通过控制变量法研究规律
-   - 例：研究光的加法混色和颜料的减法混色规律
-3. **解释 (Explain)**：运用科学理论解释探究中发现的现象，建立系统理解
-   - 例：运用电磁波谱理论和视觉感知原理解释颜色现象
-
-**适用场景**：
-- 科技馆展品教育活动（与展览深度结合）
-- 存在强烈日常认知干扰的科学概念（如力与运动、颜色、热传递）
-- 30-60分钟的短时长互动
-
-#### IADE（引入-活动-讨论-拓展）
-由郝杏丽等学者提出，专为**馆校合作**设计的学习单流程，为馆校合作中的学习支持工具开发提供有效方法。
-
-**流程**：
-1. **引入 (Introduce)**：通过情境创设和问题引导激发学习兴趣
-2. **活动 (Activity)**：明确探究任务和操作步骤，在科技馆实地开展
-3. **讨论 (Discuss)**：提供反思问题和交流框架，促进概念建构
-4. **拓展 (Extend)**：设计延伸性学习任务，连接课堂知识
-
-**设计原则**：
-- 遵循认知负荷理论，将复杂概念分解为可操作的学习组块
-- 学习单作为"认知支架"，降低学习难度
-- 明确标注与课程标准的对应关系
-
-**适用场景**：
-- 馆校合作课程
-- 学校组织的科技馆参观活动
-- 需要与学校课程对接的教育活动
+### 框架详解
 
 #### Guided Play（引导式游戏）
-由刘芷廷等学者综述研究提出，**介于自由游戏和直接教学之间**，既保留游戏的趣味性和自主性，又通过适度引导确保学习目标达成。
+基于引导式游戏研究（Hirsh-Pasek et al. 等），**介于自由游戏和直接教学之间**，既保留游戏的趣味性和自主性，又通过适度引导确保学习目标达成。
 
 **理论基础**：
 - 皮亚杰前运算阶段（2-7岁）儿童思维自我为中心，依赖感觉和动作
@@ -484,25 +401,6 @@ Grant, Swan & Lee (2017) 提出的探究设计模型，特别适用于社会研�
 5. **总结性任务 (Summative Task)**：最终产出
 6. **知情行动 (Taking Informed Action)**：将学习转化为社会行动
 
-#### STREAMING 框架
-Drigas & Kefalis (2024) 提出的包容性 STEAM 教育框架。
-
-**组成元素**：
-- **S**cience（科学）
-- **T**echnology（技术）
-- **R**obotics（机器人）
-- **E**ngineering（工程）
-- **A**I（人工智能）
-- **M**athematics（数学）
-- **E**motional Intelligence（情商）
-- **I**nclusion（包容性）
-- **N**gamification（游戏化）
-- **G**（整体整合）
-
-**核心理念**：
-- 不仅整合学科，还整合情感智能、包容性和游戏化
-- 适合设计面向未来的综合性 STEM 活动
-
 ### NGSS 三维学习框架对齐
 
 所有活动设计应参照 NGSS（Next Generation Science Standards）三维学习框架进行对齐检查：
@@ -558,53 +456,14 @@ NGSS 强调从"学习关于 (Learning About)"转向"弄清楚 (Figuring Out)"。
 ### 框架切换说明
 
 在输出中必须明确说明：
-> **本活动采用 [框架名称] 框架，基于 CIC 理论模型设计，ACPRE 维度定位为[四维度]，因为 [理由：主题特征、目标人群、时间约束、场景需求等]。**
+> **本活动采用 [框架名称] 框架，因为 [理由：主题特征、目标人群、时间约束、场景需求等]。**
 
 ### 混合使用
 
 某些复杂主题可混合框架（SSI 不适用，因涉及伦理/争议主题时直接终止）：
 - **PBL** 项目中嵌入 **5E** 阶段来深入理解关键概念
 - **Design Thinking** 中嵌入 **IBL** 阶段进行科学实验验证假设
-- **DIE** 与 **POE** 结合：先解构日常认知，再预测-观察-解释
-- **IADE** 与 **5E** 结合：馆校合作中，课前用 IADE 引入，馆中用 5E 探究，课后用 IADE 拓展
 - **Guided Play** 与 **4-Stage** 结合：低龄儿童先用引导式游戏自由探索，再进入结构化讨论
-
-**CIC-ACPRE-框架的整合使用**：
-- CIC 模型提供宏观理论定位
-- ACPRE 模型提供认知心理学维度的目标设定和操作路径
-- 具体教学框架（5E/PBL/Design Thinking等）提供阶段化的流程设计
-- 三者的整合实现了从"理论驱动"到"学习导向"的升华
-
-## SMEALOS 评估体系（内部反馈机制 — 不直接输出）
-
-基于博士论文构建的 **SMEALOS（Science Museum Educational Activity Learning Outcomes Scale）** 评估体系，作为系统**内部反馈机制**使用。在生成活动方案后，系统自动对照 SMEALOS 四维度进行隐性评估，识别方案中的薄弱环节，并**自动修正方案**后输出最终版本。不向用户直接展示评估表格或评估结果。
-
-### 内部反馈逻辑
-
-| 维度 | 子因子 | 内部检查内容 | 自动修正触发条件 |
-|------|--------|-------------|----------------|
-| **科学素养 (SLS)** | 科学知识、科学方法、科学态度 | 检查方案中是否有核心概念准确传达、完整探究过程、证据思维培养 | 缺少科学方法训练 → 插入探究环节；概念表述不准确 → 重写 |
-| **科学兴趣 (SIS)** | 科学兴趣、学习动机、持续参与意愿 | 检查方案是否创设有趣探究情境、提供自主探索空间、设计延伸活动 | 趣味性不足 → 增加互动游戏或挑战任务；缺少延伸 → 补充后续资源 |
-| **探究能力 (IAS)** | 问题提出、实验设计、数据分析、论证交流 | 检查方案是否提供开放性问题、实验设计支架、数据分析工具、论证交流环节 | 缺少问题提出环节 → 增加现象观察+提问引导；缺少数据分析 → 插入记录表/图表 |
-| **学习体验 (LES)** | 参与满意度、认知挑战、社交互动、情感体验 | 检查方案是否有情感支持、适度认知挑战、协作环节、支持性氛围 | 认知挑战过低 → 增加开放性问题；缺少协作 → 设计小组任务 |
-
-### 自动修正流程
-
-```
-生成初始方案
-    ↓
-SMEALOS 四维度隐性扫描
-    ↓
-识别薄弱维度（如：IAS 维度缺少实验设计支架）
-    ↓
-自动修正：在对应阶段插入实验设计引导问题 + 控制变量提示卡
-    ↓
-重新评估，直至通过
-    ↓
-输出最终方案（不附评估表格）
-```
-
-> **注意**：SMEALOS 评估是系统内部优化工具，不直接输出给用户。用户收到的活动方案中不包含评估量表或评估对齐表格，但方案本身已经过评估-修正循环优化。
 
 ## 形成性评估检查点（内部自动修正机制 — 不直接输出）
 
