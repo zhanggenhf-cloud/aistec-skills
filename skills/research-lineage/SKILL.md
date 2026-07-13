@@ -245,7 +245,9 @@ LLM 双层评分：方法相关性 + 问题对齐度（各1-5分）
 
 ### 5. I3 多 API 交叉审计（I3 Reference Verification）
 
-**I3 = Integrity × Independence × Interoperability**
+**I3 多 API 交叉审计（I3 Reference Verification）**
+
+在 ScientistOne 的 CoE Integrity Audit 中，I3 即 Reference Verification（引用验证），要求对每个参考文献条目同时查询多个学术 API，以拦截幻觉引用。
 
 对所有引用执行独立审计：
 
@@ -344,9 +346,9 @@ LLM 双层评分：方法相关性 + 问题对齐度（各1-5分）
 - **DOI 误导**：伪造 DOI 指向不相关的真实论文
 - **上游库污染**：hand-curated 的框架内置虚假引用（如 AutoResearchClaw 的 YAML 库）
 
-### 2. 文献验证流程（CoE 六步验证法：A→B→C→D→E→F）
+### 2. 文献验证流程（六步验证法：A→B→C→D→E→F）
 
-对输出中列出的**每一篇关键文献**，在执行验证的同时，**必须获取其摘要原文**。
+基于 CoE 零误引原则，对输出中列出的**每一篇关键文献**，在执行验证的同时，**必须获取其摘要原文**。以下六步验证法为 skill 内部整理的工作流程：
 
 #### 获取摘要的途径（按优先级）
 
@@ -363,6 +365,8 @@ LLM 双层评分：方法相关性 + 问题对齐度（各1-5分）
 - 若摘要获取成功但为非英文（如中文论文）→ 直接输出原文，无需翻译原文部分
 
 #### 验证步骤（A→B→C→D→E→F）
+
+以下步骤为基于 CoE 原则的实操验证流程：
 
 **步骤 A：PI 引用图构建（Citation Graph）**
 - 从 2-4 篇种子论文出发，通过 Semantic Scholar API 遍历引文关系（2跳深度）

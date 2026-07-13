@@ -64,11 +64,11 @@ For each activity plan, load [references/analysis-framework.md](references/analy
 3. **Pedagogical Flow** — Presence and distribution of Hook→Exploration→Discussion→Application
 4. **Content Depth** — Level of scientific explanation (L1-L4)
 5. **Interaction Design** — Types of learner engagement
-6. **Assessment** — Evaluation methods used, SMEALOS four-dimension coverage
+6. **Assessment** — Evaluation methods used, formative/summative coverage
 7. **Language Style** — Formality, perspective, tone
 8. **Practicality** — Material accessibility, time realism, safety
-9. **Theoretical Framework** — CIC model positioning (Context/Inquiry/Construction coverage), ACPRE four-dimension alignment
-10. **Cognitive Psychology** — Cognitive load management, embodied cognition integration, working memory considerations
+9. **Theoretical Framework** — Explicit statement of learning theory basis (Constructivism, Situated Cognition, Inquiry-Based Learning, etc.) and pedagogical framework alignment
+10. **Cognitive Psychology** — Cognitive load management, working memory considerations, engagement strategies
 
 **Output:** JSON analysis for each plan + quality scores
 
@@ -110,13 +110,13 @@ For each activity plan, perform deep content analysis beyond structural analysis
 #### 3.2 Pedagogical Framework Distribution
 
 分析每个计划使用的教学框架和活动类型：
-- 识别框架类型：5E / 4-Stage / PBL / Design Thinking / SSI / IBL / DIE / IADE / Guided Play / 其他
+- 识别框架类型：5E / 4-Stage / PBL / Design Thinking / IBL / POE / 7E / Guided Play / 其他
+  - 注意：SSI（社会性科学议题）涉及伦理争议，不适合作为活动框架，若检测到应标记为不适宜
 - 识别活动类型：知识传递型 / 技能培养型 / 兴趣激发型 / 综合发展型
 - 统计各框架和活动类型在集合中的分布比例
 - 识别"框架使用趋势"：是否偏向某一框架？是否有框架缺失？
 - 评估框架使用质量：框架阶段是否完整？逻辑是否连贯？
-- 检查CIC模型定位：是否明确说明了情境/探究/建构三维度？
-- 检查ACPRE维度覆盖：是否统筹了认知功能奠基/科学概念建构/心理情感融入/科学融合应用？
+- 检查理论定位：是否明确说明了学习目标与所选教学框架的对应关系？
 
 **输出**：
 ```markdown
@@ -127,9 +127,8 @@ For each activity plan, perform deep content analysis beyond structural analysis
 | 5E | 15 | 30% | 4.2/5 | 3.0-5.0 |
 | 4-Stage | 20 | 40% | 3.8/5 | 2.5-4.5 |
 | PBL | 8 | 16% | 4.0/5 | 3.0-5.0 |
-| SSI | 2 | 4% | 3.5/5 | 3.5-3.5 |
-| DIE | 1 | 2% | 4.0/5 | 4.0-4.0 |
-| IADE | 1 | 2% | 3.5/5 | 3.5-3.5 |
+| Design Thinking | 5 | 10% | 4.2/5 | 3.5-5.0 |
+| POE/PEE | 3 | 6% | 3.8/5 | 3.0-4.5 |
 | Guided Play | 2 | 4% | 3.8/5 | 3.5-4.0 |
 | 其他/未识别 | 5 | 10% | 2.5/5 | 1.0-4.0 |
 
@@ -142,25 +141,24 @@ For each activity plan, perform deep content analysis beyond structural analysis
 | 兴趣激发型 | 8 | 16% | 4.0/5 | Guided Play, 4-Stage |
 | 综合发展型 | 12 | 24% | 4.2/5 | PBL, Design Thinking |
 
-### CIC模型与ACPRE维度分析
+### 理论框架与学习目标分析
 
 | 维度 | 明确说明占比 | 平均覆盖深度 | 常见问题 |
 |------|------------|------------|---------|
-| 情境(Context) | 45% | 1.5/3 | 缺乏物理/社会/文化情境的完整描述 |
-| 探究(Inquiry) | 60% | 2.0/3 | 探究环节不完整，缺少证据收集/交流反思 |
-| 建构(Construction) | 50% | 1.8/3 | 预期学习成果不明确，缺少态度/身份认同维度 |
-| 认知功能奠基 | 15% | 0.8/3 | 忽视底层认知能力训练 |
-| 科学概念建构 | 75% | 2.2/3 | 常见但深度不足 |
-| 心理情感融入 | 20% | 0.9/3 | 忽视非智力因素培养 |
-| 科学融合应用 | 30% | 1.2/3 | 缺乏真实问题解决情境 |
+| 理论依据陈述 | 45% | 1.5/3 | 缺乏明确的学习理论支撑说明 |
+| 学习目标 SMART 化 | 60% | 2.0/3 | 目标描述不够具体，缺少可测量标准 |
+| 布鲁姆分类对齐 | 50% | 1.8/3 | 认知层次单一，高阶思维目标不足 |
+| 情境设计 | 55% | 1.9/3 | 真实情境连接不足 |
+| 探究过程完整性 | 60% | 2.0/3 | 探究环节不完整，缺少证据收集/交流反思 |
+| 差异化设计 | 30% | 1.2/3 | 缺乏UDL差异化策略 |
+| 评估对齐 | 40% | 1.5/3 | 形成性评估与学习目标不匹配 |
 
-**分析**：
+**分析**（示例）：
 - 4-Stage 占比过高，可能反映博物馆场景为主
-- SSI 和 Design Thinking 严重不足，建议增加争议议题和工程设计类活动
-- DIE 和 IADE 框架使用极少，建议增加展品教育和馆校合作类活动
+- PBL 和 Design Thinking 占比适中，但仍有提升空间
 - Guided Play 仅用于低龄儿童活动，覆盖面有限
 - 综合发展型活动质量最高，但占比不足
-- ACPRE 四维度中"认知功能奠基"和"心理情感融入"严重不足
+- 理论依据陈述和差异化设计是普遍薄弱环节
 - 5篇"其他/未识别"框架质量最低，可能需要框架使用培训
 ```
 
@@ -211,20 +209,20 @@ For each activity plan, perform deep content analysis beyond structural analysis
 
 #### 4.1 Weighted Quality Rubric
 
-设计多维度加权评分标准，整合 SMEALOS 评估框架：
+设计多维度加权评分标准：
 
-| 维度 | 权重 | 评分标准 (1-5分) | 评分方法 | SMEALOS 对齐 |
-|------|------|-----------------|---------|------------|
-| **科学准确性** | 15% | 1=有错误, 3=基本准确但可优化, 5=精确且前沿 | 专家审核 + 文献验证 | 科学素养(SLS) |
-| **教育有效性** | 15% | 1=目标不明确, 3=目标达成但平淡, 5=高阶思维+深度学习 | 布鲁姆分类覆盖 + 目标-活动对齐 | 科学素养(SLS) |
-| **框架完整性** | 10% | 1=框架混乱/缺失, 3=框架存在但阶段不完整, 5=框架完整且逻辑清晰 | 框架识别 + 阶段完整性检查 | — |
-| **可操作性** | 10% | 1=无法执行, 3=可执行但材料难获取, 5=材料易获取+步骤清晰 | 材料清单检查 + 步骤清晰度评估 | 学习体验(LES) |
-| **UDL 覆盖** | 10% | 1=无差异化, 3=部分差异化, 5=三原则全覆盖 | UDL 分析结果 | 学习体验(LES) |
-| **形成性评估** | 10% | 1=无评估, 3=有总结性评估, 5=嵌入形成性+UDL替代评估 | 评估检查点分析 | 探究能力(IAS) |
-| **科学兴趣激发** | 10% | 1=枯燥乏味, 3=有一定趣味性, 5=高度激发好奇心和持续参与意愿 | 情境设计 + 互动性评估 | 科学兴趣(SIS) |
-| **探究能力培养** | 10% | 1=无探究环节, 3=有探究但不完整, 5=完整探究过程+高阶思维训练 | 探究流程完整性 + 认知挑战度 | 探究能力(IAS) |
-| **学习体验设计** | 10% | 1=体验差, 3=体验一般, 5=沉浸式、愉悦、有成就感 | 情感体验 + 社交互动 + 认知挑战 | 学习体验(LES) |
-| **安全性** | 10% | 1=无安全提示, 3=有安全提示但不够, 5=完整安全协议+应急预案 | 安全章节检查 | 学习体验(LES) |
+| 维度 | 权重 | 评分标准 (1-5分) | 评分方法 |
+|------|------|-----------------|---------|
+| **科学准确性** | 15% | 1=有错误, 3=基本准确但可优化, 5=精确且前沿 | 专家审核 + 文献验证 |
+| **教育有效性** | 15% | 1=目标不明确, 3=目标达成但平淡, 5=高阶思维+深度学习 | 布鲁姆分类覆盖 + 目标-活动对齐 |
+| **框架完整性** | 10% | 1=框架混乱/缺失, 3=框架存在但阶段不完整, 5=框架完整且逻辑清晰 | 框架识别 + 阶段完整性检查 |
+| **可操作性** | 10% | 1=无法执行, 3=可执行但材料难获取, 5=材料易获取+步骤清晰 | 材料清单检查 + 步骤清晰度评估 |
+| **UDL 覆盖** | 10% | 1=无差异化, 3=部分差异化, 5=三原则全覆盖 | UDL 分析结果 |
+| **形成性评估** | 10% | 1=无评估, 3=有总结性评估, 5=嵌入形成性+UDL替代评估 | 评估检查点分析 |
+| **科学兴趣激发** | 10% | 1=枯燥乏味, 3=有一定趣味性, 5=高度激发好奇心和持续参与意愿 | 情境设计 + 互动性评估 |
+| **探究能力培养** | 10% | 1=无探究环节, 3=有探究但不完整, 5=完整探究过程+高阶思维训练 | 探究流程完整性 + 认知挑战度 |
+| **学习体验设计** | 10% | 1=体验差, 3=体验一般, 5=沉浸式、愉悦、有成就感 | 情感体验 + 社交互动 + 认知挑战 |
+| **安全性** | 10% | 1=无安全提示, 3=有安全提示但不够, 5=完整安全协议+应急预案 | 安全章节检查 |
 
 **总分计算**：
 ```
@@ -237,12 +235,6 @@ For each activity plan, perform deep content analysis beyond structural analysis
 - 70-79：良好 (C)
 - 60-69：合格 (D)
 - <60：需改进 (F)
-
-**SMEALOS 四维度子评分**：
-- 科学素养评分 = 科学准确性 × 0.6 + 教育有效性 × 0.4
-- 科学兴趣评分 = 科学兴趣激发
-- 探究能力评分 = 探究能力培养 + 形成性评估 × 0.5
-- 学习体验评分 = 可操作性 × 0.3 + UDL覆盖 × 0.3 + 学习体验设计 × 0.4
 
 #### 4.2 Benchmarking Against Standards
 
@@ -337,7 +329,6 @@ For each activity plan, perform deep content analysis beyond structural analysis
 - 无安全提示：2020年20% → 2024年5% (-15%)
 
 **新兴元素**：
-- SSI框架：2023年首次出现，2024年占10%
 - AI/数字化工具：2024年占15%（AR模拟、虚拟实验）
 ```
 
@@ -530,26 +521,26 @@ User: "分析我们的活动方案，找出优势和改进点"
 
 ### Required Sections
 1. Basic Information (age, duration, group size, discipline, activity type)
-2. Theoretical Framework (CIC model positioning: Context/Inquiry/Construction)
-3. ACPRE Four-Dimension Objectives (cognitive function foundation / scientific concept construction / psychological-emotional integration / scientific fusion application)
-4. Learning Objectives (3-5, SMART, Bloom's aligned + ACPRE dimensions)
-5. Pedagogical Framework Selection (explicitly state framework + justification + CIC-ACPRE integration)
-6. Activity Flow (framework-specific stages with facilitation guides + ACPRE five-step mapping)
-7. Formative Assessment Checkpoints (≥1 per learning objective, embedded in flow, aligned with SMEALOS)
-8. SMEALOS Assessment Alignment (scientific literacy / interest / inquiry ability / learning experience)
+2. Theoretical Framework (explicit learning theory basis and pedagogical framework alignment)
+3. Learning Objectives (3-5, SMART, Bloom's taxonomy aligned)
+4. Learning Objectives (3-5, SMART, Bloom's taxonomy aligned)
+5. Pedagogical Framework Selection (explicitly state framework + justification)
+6. Activity Flow (framework-specific stages with facilitation guides)
+7. Formative Assessment Checkpoints (≥1 per learning objective, embedded in flow)
+8. Assessment Alignment (learning objectives to formative checkpoints)
 9. UDL Differentiation Plan (representation, expression, engagement)
 10. Materials List (with sourcing info and cost estimates)
 11. Safety Notes (risk assessment + emergency procedures)
 
 ### Recommended Sections
-1. Activity Summary (with CIC positioning, safety highlights, and activity type)
+1. Activity Summary (with theoretical positioning, safety highlights, and activity type)
 2. Background Knowledge (verified with literature references)
 3. STEM/STEAM Integration Map (if applicable)
 4. NGSS 3D Alignment (if applicable)
 5. Museum-School Partnership Guide (pre-visit / visit / post-visit, if applicable)
 6. Family Learning Guide (Guided Play strategies, parent conversation prompts, if applicable)
 7. Mixed Learning Mode Design (online + offline integration, if applicable)
-8. Assessment Rubrics (including UDL alternatives + SMEALOS dimensions)
+8. Assessment Rubrics (including UDL alternatives)
 9. Longitudinal Tracking Evaluation Design (if applicable)
 10. Contingency Plans (weather, participant issues, equipment failure)
 11. Extension Resources (further reading, follow-up activities)
@@ -606,25 +597,30 @@ User: "分析我们的活动方案，找出优势和改进点"
 | 探究能力培养 | 55.4 | 19.3 | C中心 (82) | A馆 (32) |
 | 学习体验设计 | 70.8 | 14.2 | C中心 (85) | B校 (55) |
 
-### SMEALOS Four-Dimension Comprehensive Scoring
+### 维度综合评分
 
-| Dimension | Average Score | Highest Institution | Lowest Institution | Key Findings |
-|------|---------|-----------|-----------|---------|
-| 科学素养 (SLS) | 78.2 | C中心 (90) | A馆 (65) | Basic accuracy达标, but conceptual depth insufficient |
-| 科学兴趣 (SIS) | 62.1 | B校 (80) | A馆 (45) | Overall偏低, context design and interactivity insufficient |
-| 探究能力 (IAS) | 55.4 | C中心 (82) | A馆 (32) | Seriously偏低, inquiry process incomplete |
-| 学习体验 (LES) | 70.8 | C中心 (85) | B校 (55) | Medium level, UDL and emotional experience have room for improvement |
+| 维度 | 平均分 | 最高机构 | 最低机构 | 关键发现 |
+|------|--------|---------|---------|---------|
+| 科学准确性 | 78.2 | C中心 (90) | A馆 (65) | 基本准确达标，但概念深度不足 |
+| 教育有效性 | 76.3 | C中心 (88) | A馆 (62) | 目标-活动对齐良好，但高阶思维训练不足 |
+| 框架完整性 | 71.4 | B校 (82) | A馆 (55) | 框架使用存在但阶段不完整 |
+| 可操作性 | 85.2 | A馆 (90) | B校 (75) | 整体较好，材料清单较清晰 |
+| UDL覆盖 | 58.3 | C中心 (85) | A馆 (35) | 差异化设计普遍薄弱 |
+| 形成性评估 | 45.6 | C中心 (78) | A馆 (20) | 严重不足，多数仅有总结性评估 |
+| 科学兴趣激发 | 62.1 | B校 (80) | A馆 (45) | 情境设计和互动性不足 |
+| 探究能力培养 | 55.4 | C中心 (82) | A馆 (32) | 探究过程不完整 |
+| 学习体验设计 | 70.8 | C中心 (85) | B校 (55) | 中等水平，社交互动和成就感有提升空间 |
 
-### CIC and ACPRE Analysis
+### 理论框架分析
 
-| Indicator | Average | Key Findings |
-|------|------|---------|
-| 情境维度覆盖 | 1.5/3 | Physical context description good, social/cultural context insufficient |
-| 探究维度覆盖 | 2.0/3 | Inquiry环节有 but evidence collection/communication reflection weak |
-| 建构维度覆盖 | 1.8/3 | Conceptual understanding goal clear, attitude/identity formation missing |
-| ACPRE四维度完整度 | 35% | Most plans only focus on "scientific concept construction", neglect other three dimensions |
-| 认知功能奠基 | 0.8/3 | Seriously insufficient, only 15% plans involve |
-| 心理情感融入 | 0.9/3 | Seriously insufficient, only 20% plans involve |
+| 指标 | 平均分 | 关键发现 |
+|------|--------|---------|
+| 理论依据明确度 | 1.5/3 | 物理情境描述较好，社会/文化情境不足 |
+| 探究过程完整性 | 2.0/3 | 有探究环节，但证据收集和交流反思薄弱 |
+| 学习目标对齐度 | 1.8/3 | 概念理解目标较清晰，态度/身份认同维度缺失 |
+| 理论框架完整度 | 35% | 多数计划仅聚焦科学概念，忽视认知能力和情感因素 |
+| 差异化设计 | 0.8/3 | 严重不足，仅15%计划涉及 |
+| 评估科学性 | 0.9/3 | 严重不足，仅20%计划有系统的评估设计 |
 
 ### Activity Type Distribution
 
@@ -641,8 +637,8 @@ User: "分析我们的活动方案，找出优势和改进点"
 - **Assessment Gap**: 55% of plans lack formative assessment checkpoints
 - **Safety**: 100% include safety notes (baseline met)
 - **Literature**: Only 30% include verified literature references
-- **CIC-ACPRE Gap**: 65% of plans lack explicit CIC positioning; 85% lack ACPRE four-dimension coverage
-- **SMEALOS Weakness**: Scientific interest (SIS) and inquiry ability (IAS) are the two weakest dimensions across all institutions
+- **理论框架薄弱**: 65% 的计划缺乏明确的理论依据陈述; 理论框架与活动设计对齐度不足
+- **评估设计薄弱**: 科学兴趣激发和探究能力培养是所有机构中最弱的两个维度
 - **Activity Type Imbalance**: Knowledge-delivery type dominates (24%), while comprehensive-development type is underrepresented (24%) despite higher quality scores
 - **Longitudinal Tracking**: 0% of plans include longitudinal evaluation design, all are cross-sectional
 - **Mixed Methods**: Only 10% of plans use both quantitative and qualitative evaluation methods
@@ -653,11 +649,11 @@ User: "分析我们的活动方案，找出优势和改进点"
 ### Improvement Opportunities
 1. **UDL coverage**: 70% of plans need enhanced differentiation
 2. **Formative assessment**: 55% need embedded checkpoints
-3. **Framework diversity**: 85% rely on only 2 frameworks (5E + 4-Stage), need to introduce DIE/IADE/Guided Play
+3. **Framework diversity**: 85% rely on only 2 frameworks (5E + 4-Stage), need to introduce POE/PEE/Guided Play for more diverse pedagogical approaches
 4. **Literature verification**: 70% need verified references
 5. **STEM integration**: 60% lack meaningful cross-disciplinary connections
-6. **CIC-ACPRE integration**: 85% lack explicit theoretical positioning, need to add CIC model and ACPRE four-dimension design
-7. **SMEALOS assessment**: 90% lack systematic learning outcome evaluation, need to introduce SMEALOS four-dimension assessment
+6. **理论定位强化**: 85% 缺乏明确的理论定位，建议明确学习理论基础和教学目标的多维度对齐
+7. **评估体系完善**: 90% 缺乏系统的学习成果评估，建议建立包含科学素养、兴趣、探究能力和体验的多维度评估
 8. **Activity type balance**: Comprehensive-development type activities are underrepresented despite higher quality
 9. **Longitudinal tracking**: 100% of plans are cross-sectional, need to introduce longitudinal evaluation design
 10. **Mixed methods**: Only 10% use mixed evaluation, need to combine quantitative and qualitative methods
@@ -669,9 +665,9 @@ User: "分析我们的活动方案，找出优势和改进点"
 |----------|---------------|----------------|--------|
 | P0 | 增加形成性评估检查点 | +20% 教育有效性 | 低 |
 | P0 | 提升UDL覆盖至≥2.0/3 | +15% 总体质量 | 中 |
-| P0 | 引入CIC理论定位与ACPRE四维度设计 | +18% 教育有效性 | 中 |
-| P0 | 引入SMEALOS四维度评估体系 | +12% 评估科学性 | 中 |
-| P1 | 引入PBL/SSI/DIE等框架 | +10% 框架完整性 | 高 |
+| P0 | 强化理论定位与多维度学习目标设计 | +18% 教育有效性 | 中 |
+| P0 | 建立系统化的学习成果评估体系 | +12% 评估科学性 | 中 |
+| P1 | 引入POE/PEE/Guided Play等多样化框架 | +10% 框架完整性 | 高 |
 | P1 | 增加文献验证流程 | +8% 科学准确性 | 中 |
 | P1 | 增加纵向追踪评估设计 | +10% 效果持续性 | 高 |
 | P1 | 引入馆校合作三阶段模型 | +8% 场景适配度 | 中 |
