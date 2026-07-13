@@ -4,14 +4,13 @@
 
 # AISTEC Skills
 
-AI-driven Integrated Science Education Content Creation Framework — OpenClaw AgentSkills
-
+AI-driven Integrated Science & Technology Education Content Creation Framework
 ## Overview
 
 This repository contains three OpenClaw AgentSkills that power the AISTEC (AI-driven Integrated Science Education Content Creation Framework) system.
 
 The framework integrates:
-- **Chain-of-Evidence (CoE) zero-misattribution citation verification** via multi-API cross-audit (I3 audit: Semantic Scholar + arXiv + CrossRef)
+- **zero-misattribution citation verification** via multi-API cross-audit (I3 audit: Semantic Scholar + arXiv + CrossRef)
 - **13 pedagogical frameworks** auto-matched by decision tree (5E, PBL, Design Thinking, POE, 7E, etc.)
 - **Internal formative assessment feedback** — SMEALOS four-dimension evaluation used as system-internal auto-correction, not exposed to end users
 - **SSI termination condition** — automatic halt when topics involve scientific controversy, ethical decisions, or social policy
@@ -19,13 +18,13 @@ The framework integrates:
 ## Skills
 
 ### 1. `research-lineage`
-Research lineage intelligent梳理 engine. Integrates CiteSpace/VOSviewer bibliometric analysis with PRISMA systematic screening and CoE zero-misattribution citation verification.
+Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric analysis with PRISMA systematic screening and zero-misattribution citation verification.
 
 **Key features:**
 - 6-round joint retrieval (WebSearch + arXiv + Scholar + Semantic Scholar + CrossRef + CNKI browser automation)
 - PI citation graph construction (seed papers → 2-hop citation graph → elite pool via LLM dual scoring)
 - CoE 6-step verification (A→B→C→D→E→F): graph building → API screening → bibliographic cross-check → I3 multi-API audit → LLM summary entailment → timeline consistency + upstream contamination detection
-- 5-class hallucination detection (TF/PAC/IH/PH/SH) with inline evidence tags `{source}`
+- 5-class hallucination detection (TF/PAC/IH/PH/SH) 
 
 ### 2. `science-edu-activity`
 Science education activity plan generator. Built on CIC "Context-Inquiry-Construction" triadic model and ACPRE "4-dimension 5-step" cognitive psychology design model.
