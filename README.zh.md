@@ -1,17 +1,16 @@
-English | [🌐 中文](README.zh.md)
 
 ---
 
 # AISTEC 技能集
 
-AI 驱动的科学教育活动智能创作框架 —— OpenClaw AgentSkills
+AI 驱动的科学教育活动智能创作框架
 
 ## 概述
 
 本仓库包含三个 OpenClaw AgentSkills，为 AISTEC（AI 驱动的科学教育活动智能创作框架）提供核心能力。
 
 该框架整合了：
-- **CoE 零误引引用验证** —— 通过多 API 交叉审计（I3 审计：Semantic Scholar + arXiv + CrossRef）确保引用可追溯
+- **零误引引用验证** —— 通过多 API 交叉审计（I3 审计：Semantic Scholar + arXiv + CrossRef）确保引用可追溯
 - **13 种教学法框架** —— 通过决策树自动匹配（5E、PBL、Design Thinking、POE、7E 等）
 - **内部形成性评估反馈** —— SMEALOS 四维度评估作为系统内部自动修正机制，不直接向用户暴露评估量规
 - **SSI 终止条件** —— 当主题涉及科学争议、伦理决策或社会政策时自动停止生成
@@ -19,13 +18,13 @@ AI 驱动的科学教育活动智能创作框架 —— OpenClaw AgentSkills
 ## 技能
 
 ### 1. `research-lineage`（研究脉络梳理）
-研究脉络智能梳理引擎。集成 CiteSpace/VOSviewer 文献计量分析、PRISMA 系统筛选与 CoE 零误引引用验证。
+研究脉络智能梳理引擎。集成 CiteSpace/VOSviewer 文献计量分析、PRISMA 系统筛选与零误引引用验证。
 
 **核心特性：**
 - 六轮联合检索（网页搜索 + arXiv + Google Scholar + Semantic Scholar + CrossRef + 知网自动化）
 - PI 引用图构建（种子论文 → 2 跳引文图 → 精英池，通过 LLM 双层评分筛选）
 - CoE 六步验证法（A→B→C→D→E→F）：构建引用图 → API 筛查 → 书目交叉核对 → I3 多 API 审计 → LLM 摘要蕴涵验证 → 时间线一致性 + 上游库污染检测
-- 五类幻觉检测（TF/PAC/IH/PH/SH），含内联证据标签 `{source}`
+- 五类幻觉检测（TF/PAC/IH/PH/SH）
 
 ### 2. `science-edu-activity`（科学教育活动设计）
 科学教育活动方案生成器。基于 CIC「情境-探究-建构」三维权模型和 ACPRE「四维度五步」认知心理学设计模型。
