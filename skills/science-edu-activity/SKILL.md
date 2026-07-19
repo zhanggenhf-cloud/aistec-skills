@@ -60,7 +60,7 @@ Load [references/knowledge-deconstruction.md](references/knowledge-deconstructio
 
 1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives
 2. **Knowledge Breakdown** — Deconstruct into hierarchical knowledge nodes with real-world examples and common misconceptions
-3. **Instructional Sequencing** — Design pedagogical flow using one of the following frameworks (auto-select based on topic + constraints). **If the topic involves ethical controversy, scientific policy, or socio-scientific issues, terminate immediately and do not proceed.**
+3. **Instructional Sequencing** — Design pedagogical flow using one of the following frameworks (auto-select based on topic + constraints). **If the topic involves ethical controversy, scientific policy, or socio-scientific issues, identify SSI attributes and switch to SSI structured controversy teaching mode (only pseudoscientific topics trigger termination).**
    - **5E Model** (Engage→Explore→Explain→Elaborate→Evaluate) — 适合探究式科学概念
    - **4-Stage Flow** (Hook→Explore→Discuss→Apply) — 适合博物馆/科技馆互动活动
    - **PBL (Project-Based Learning)** — 适合真实世界问题解决、跨学科主题
@@ -170,7 +170,7 @@ Apply multi-layer error correction from [references/error-correction.md](referen
 Apply accuracy assurance from [references/accuracy-assurance.md](references/accuracy-assurance.md):
 
 Apply accuracy assurance from [references/accuracy-assurance.md](references/accuracy-assurance.md):
-- Add accuracy annotations (🔬 scientific fact, 📐 simplified model, 🎭 analogy)
+- Add accuracy annotations (【科学事实】, 【简化模型】, 【教学类比】, 【常见误解】)
 - Flag areas needing expert review
 - Include verification prompts for controversial topics
 
@@ -220,27 +220,37 @@ Generate output in standard Markdown following the template in [references/outpu
 
 根据主题特征和约束条件，自动选择最适合的教学框架：
 
-### 选择决策树
+### 选择决策树（安全优先、受众优先）
 
 ```
-主题是否涉及伦理争议/社会决策/科学争议？
-  ├─ 是 → **终止生成**。该主题涉及社会性科学议题（SSI），内容不宜输出，停止方案生成。
-  └─ 否 → 主题是否涉及工程设计/制作实物？
-          ├─ 是 → Design Thinking（设计思维）或 Engineering Design Process
-          └─ 否 → 是否需要解决真实世界问题？
-              ├─ 是 → PBL（项目式学习）或 POE/PEE（预测-观察-解释）
-              └─ 否 → 是否强调科学探究过程/开放问题？
-                  ├─ 是 → IBL（探究式学习）或 5E/7E 模型
-                  │       ├─ 需要前测/暴露前概念 → 7E（增加 Elicit）
-                  │       ├─ 需要延伸拓展 → 7E（增加 Extend）
-                  │       └─ 标准探究 → 5E
-                  └─ 否 → 是否需要连接生活经验/真实情境？
-                      ├─ 是 → REACT（关联-体验-应用-协作-迁移）
-                      └─ 否 → 目标受众是否为低龄儿童（2-7岁）？
-                          ├─ 是 → Guided Play（引导式游戏）
-                          └─ 否 → 4阶段流程（博物馆/科技馆互动）
-                              └─ 需要预测环节？ → POE/PEE
+主题是否涉及科学争议、伦理决策或社会政策且要求价值判断？
+  ├─ 是 → **识别 SSI 属性**。切换至 SSI 结构化争议教学模式（仅伪科学议题触发终止生成）
+  └─ 否 → 目标受众是否为低龄儿童（2-7岁）？
+          ├─ 是 → Guided Play（引导式游戏）
+          └─ 否 → 主题是否涉及真实世界问题解决或跨学科项目？
+              ├─ 是 → PBL（项目式学习）
+              └─ 否 → 主题是否涉及产品设计与用户中心创新？
+                  ├─ 是 → Design Thinking（设计思维）
+                  └─ 否 → 主题是否涉及课程单元设计与标准对齐？
+                      ├─ 是 → UbD（逆向设计）
+                      └─ 否 → 主题是否涉及反直觉现象或前概念诊断？
+                          ├─ 是 → POE/PEE（预测-观察-解释）
+                          └─ 否 → 主题是否涉及开放性科学探究？
+                              ├─ 是 → IBL（探究式学习）
+                              └─ 否 → 主题是否涉及情境学习与技能迁移？
+                                  ├─ 是 → REACT（关联-体验-应用-协作-迁移）
+                                  └─ 否 → 主题是否涉及技能习得与程序性知识？
+                                      ├─ 是 → GRRF（渐进式责任释放）
+                                      └─ 否 → 主题是否涉及历史与科学探究？
+                                          ├─ 是 → IDM（探究设计模型）
+                                          └─ 否 → 主题是否涉及快速体验与展览解说？
+                                              ├─ 是 → 4-Stage（引入→探索→讨论→应用）
+                                              └─ 否 → 主题是否涉及深度学习与跨学科连接？
+                                                  ├─ 是 → 7E模型（5E＋Elicit＋Extend）
+                                                  └─ 否 → 5E模型（标准探究活动与概念引入）
 ```
+
+> **决策树原则**：遵循"安全优先、受众优先"的判断顺序。SSI判定置于首位，避免争议性任务被分流至其他框架而绕过内容安全机制；受众年龄（2—7岁）作为硬约束置于第二位；其余框架依据任务类型与场景约束依次匹配，12种教学法框架全部可达。
 
 ### 框架特征对照（扩展版）
 
@@ -254,10 +264,9 @@ Generate output in standard Markdown following the template in [references/outpu
 | **Design Thinking** | 同理心→定义→构思→原型→测试 | 工程设计/创客 | 小学+ | 90min-多天 | 设计迭代 | IDEO |
 | **IBL** | 问题→假设→探究→分析→结论 | 开放科学问题 | 小学+ | 60-180min | 探究过程 | Pedaste et al., 2015 |
 | **REACT** | 关联→体验→应用→协作→迁移 | 生活连接型主题 | 小学+ | 45-90min | 知识迁移 | Crawford, 2001 |
-| **LIA** | 启动→探究→行动 | 社区/环境项目 | 小学+ | 60-180min | 行动成果 | PrimaryConnections, 2024 |
 | **UbD** | 确定目标→确定评估→设计学习 | 逆向设计课程 | 全年龄 | 灵活 | 理解深度 | Wiggins & McTighe, 2005 |
 | **GRRF** | 示范→引导→协作→独立 | 技能逐步掌握 | 全年龄 | 灵活 | 技能熟练度 | Fisher & Frey, 2013 |
-| **IDM** | 驱动问题→支持问题→形成性任务→总结性任务 | 历史/社会探究 | 初中+ | 数周 | 探究能力 | Grant et al., 2017 |
+| **IDM** | 驱动问题→支持问题→形成性任务→总结性任务 | 历史/科学探究 | 初中+ | 数周 | 探究能力 | Grant et al., 2017 |
 | **Guided Play** | 自由探索→引导提问→结构化反思→家庭分享 | 低龄儿童（2-7岁） | 学龄前 | 20-45min | 概念理解 | Hirsh-Pasek et al. |
 
 ### 框架详解
@@ -311,7 +320,7 @@ Generate output in standard Markdown following the template in [references/outpu
 - 短时长互动（20-45分钟）
 
 #### 7E 模型
-在 5E 基础上增加了 **Elicit（引出）** 和 **Extend（延伸）** 两个阶段（Eisenkraft, 2003）。
+在 5E 基础上增加**前置 Elicit（引出）**和**后置 Extend（延伸）**两个阶段（Eisenkraft, 2003）。
 
 **完整流程**：
 1. **Elicit（引出）**：暴露学生已有知识和前概念（比 5E 的 Engage 更聚焦）
@@ -340,19 +349,6 @@ Generate output in standard Markdown following the template in [references/outpu
 **适用场景**：
 - 强调生活应用的主题（如：环保、健康、能源）
 - 需要培养知识迁移能力的长期项目
-
-#### LIA（启动-探究-行动）
-适合**社区参与型**和**环境行动型**科学教育。
-
-**流程**：
-1. **Launch（启动）**：引入真实社区问题
-2. **Inquire（探究）**：科学调查和数据收集
-3. **Action（行动）**：基于科学证据采取社区行动
-
-**适用场景**：
-- 环境科学（如：本地水质调查→社区倡导）
-- 公民科学项目
-- 需要产生真实社会影响的主题
 
 #### UbD（Understanding by Design，逆向设计）
 Wiggins & McTighe (2005) 提出的课程设计框架。
@@ -460,7 +456,7 @@ NGSS 强调从"学习关于 (Learning About)"转向"弄清楚 (Figuring Out)"。
 
 ### 混合使用
 
-某些复杂主题可混合框架（SSI 不适用，因涉及伦理/争议主题时直接终止）：
+某些复杂主题可混合框架（SSI 主题切换至结构化争议教学模式，仅伪科学议题触发终止）：
 - **PBL** 项目中嵌入 **5E** 阶段来深入理解关键概念
 - **Design Thinking** 中嵌入 **IBL** 阶段进行科学实验验证假设
 - **Guided Play** 与 **4-Stage** 结合：低龄儿童先用引导式游戏自由探索，再进入结构化讨论
@@ -612,22 +608,19 @@ NGSS 强调从"学习关于 (Learning About)"转向"弄清楚 (Figuring Out)"。
 **整合问题**：...
 ```
 
-## 社会性科学议题（SSI）终止条件
+## 社会性科学议题（SSI）处理机制
 
-当主题涉及科学争议、伦理决策或社会政策时，**直接终止方案生成**，不输出活动方案。
+AISTEC对SSI主题不采用"一停了之"的策略，而是设计了**"识别→模式切换→有限终止"**三级处理机制：
 
-### 终止触发条件
+### （1）识别
+当主题涉及科学伦理争议（如基因编辑伦理、AI伦理）、科学政策或社会决策（如气候变化政策、能源政策）、或争议性社会性科学议题（如转基因食品、核能利用）时，系统自动识别其SSI属性并向用户明确提示。
 
-以下任一条件触发时，立即停止方案生成：
-- 主题涉及伦理争议（如基因编辑伦理、AI 伦理、克隆技术）
-- 主题涉及科学政策/社会决策（如气候变化政策、能源政策、疫苗政策）
-- 主题涉及具有争议性的社会性科学议题（如转基因食品、核能利用、安乐死）
-- 用户输入明确要求"讨论伦理""辩论政策""社会争议"等关键词
+### （2）模式切换
+对属于SSI范畴但适合开展教学的主题，系统切换至**SSI结构化争议教学模式**：自动生成多立场论证支架（正反双方证据清单与论证结构）、角色扮演辩论流程、基于证据的立场形成与反思环节，使争议议题转化为结构化教学资源，而非被排除在学习之外。
 
-### 终止响应方式
-
-当检测到 SSI 主题时，向用户返回：
-> 该主题涉及科学争议、伦理决策或社会政策，属于社会性科学议题（SSI）范畴。基于当前内容安全策略，**不宜生成此类活动方案**。建议用户选择非争议性的科学概念或教育主题重新输入。
+### （3）有限终止
+仅当主题超出科学共识、涉及伪科学内容，或存在明确安全风险时，系统触发终止条件并返回：
+> 该主题超出当前可支持的科学教育内容范围，建议用户选择基于科学共识的主题重新输入。
 
 ### 与"科学前沿"的区别
 
@@ -636,7 +629,7 @@ NGSS 强调从"学习关于 (Learning About)"转向"弄清楚 (Figuring Out)"。
 - 主题涉及科学史（如科学革命的历程）——这是历史事实，不涉及当前社会争议
 - 主题涉及已达成共识的科学结论（如进化论、气候变化基本事实）——可作为知识传递型活动设计
 
-> **关键判断**：是否要求参与者在活动中**对争议性议题做出价值判断或立场选择**？如果是，则触发终止；如果仅介绍科学原理/历史/事实，则正常生成。
+> **关键判断**：是否要求参与者在活动中**对争议性议题做出价值判断或立场选择**？如果是，则进入SSI结构化争议模式；如果仅介绍科学原理/历史/事实，则正常生成。
 
 ## 文献检索与引用验证（CoE 零误引架构）
 

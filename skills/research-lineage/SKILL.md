@@ -388,7 +388,7 @@ LLM 双层评分：方法相关性 + 问题对齐度（各1-5分）
 - **执行 Ground 检查**：验证论文确实存在，DOI 指向正确
 
 **步骤 D：多 API 交叉验证（I3 审计）**
-- 当单一 API 不可用时，同时查询至少 **2 个独立 API**：
+- 同时查询至少 **2 个独立 API** 交叉核对，不可用时以其余组合替代：
   - Semantic Scholar + arXiv（英文论文）
   - Semantic Scholar + CrossRef（通用）
   - arXiv + Google Scholar（预印本）
@@ -400,8 +400,8 @@ LLM 双层评分：方法相关性 + 问题对齐度（各1-5分）
 - 提问："这篇论文的摘要是否支持以下声明？"
 - LLM 判断：`SUPPORT` / `PARTIAL_SUPPORT` / `CONTRADICT` / `UNRELATED`
 - 处理：
-  - `SUPPORT` → 保留
-  - `PARTIAL_SUPPORT` → 修改声明以匹配论文内容
+  - `SUPPORT` → 保留引用
+  - `PARTIAL_SUPPORT` → 保留引用并标注 `[部分支持]`、降级使用，同时修改声明以匹配论文内容
   - `CONTRADICT` 或 `UNRELATED` → 删除引用，寻找替代
 
 **步骤 F：时间线一致性验证 + 上游库污染检测**
