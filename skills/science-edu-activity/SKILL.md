@@ -246,7 +246,18 @@ Apply accuracy assurance from [references/accuracy-assurance.md](references/accu
 
 ## Output Format
 
-Generate output in standard Markdown following the template in [references/output-schema.md](references/output-schema.md). Include:
+Generate **dual-format output** for every activity plan:
+
+1. **Standard Markdown Lesson Plan** (text-based, human-readable)
+2. **Page-Level Executable Activity Scheme** (structured, page-by-page, ready for digitization)
+
+Both formats must be generated simultaneously for every activity plan.
+
+---
+
+### Format 1: Standard Markdown Lesson Plan
+
+Follow the template in [references/output-schema.md](references/output-schema.md):
 
 ```markdown
 # [Activity Name]
@@ -285,6 +296,207 @@ Generate output in standard Markdown following the template in [references/outpu
 ## 参考资料
 ...
 ```
+
+---
+
+### Format 2: Page-Level Executable Activity Scheme
+
+Structured as an array of **Pages**, where each Page is a self-contained instructional unit with explicit learning actions, evidence collection, and assessment alignment.
+
+**Global Structure**:
+
+```yaml
+activity_scheme:
+  metadata:
+    name: "活动名称"
+    duration_minutes: 45
+    target_age: "8-10岁"
+    group_size: "20人"
+    subject: "物理"
+    core_concept: "光的折射"
+    total_pages: 8
+    
+  pages:
+    - page_1: { ... }
+    - page_2: { ... }
+    # ...
+```
+
+**Page Types** (choose one per page):
+
+| Type | Code | Purpose | Learner Action |
+|------|------|---------|---------------|
+| **slide** | SL | Frame problem, present evidence, consolidate method | Observe, read, listen |
+| **interactive** | IA | Manipulate variables, trace structures, run experiments | Drag, adjust, observe changes |
+| **quiz** | QZ | Diagnose misconceptions, compare explanations, check transfer | Choose, justify, explain |
+| **pbl** | PB | Multi-step inquiry, artifact creation, public performance | Investigate, design, present |
+
+**Page Structure Template**:
+
+```yaml
+page_N:
+  id: "page-001"
+  type: "slide"  # SL | IA | QZ | PB
+  title: "学习者会发现/做出的具体事情"  # 禁止用"概念介绍""知识讲解"
+  
+  # Learning Contract
+  learning_contract:
+    target_objective: "对应的学习目标ID"
+    icap_level: "A"  # P=Passive, A=Active, C=Constructive, I=Interactive
+    literacy_dimension: "科学观念"  # 2022课标核心素养维度
+    visible_evidence: "学习者产出的可观察证据"
+  
+  # Content Design
+  content:
+    brief: "自包含的设计说明，200字内"
+    scenario: "真实情境描述（贯穿全程，不是在第1页就丢弃）"
+    task: "学习者的具体任务"
+    materials: ["材料1", "材料2"]
+    
+  # Interaction Design
+  interaction:
+    learner_action: "学习者具体做什么"
+    manipulation: "可调参数/可操元素"
+    observation_target: "观察什么、记录什么"
+    
+  # Assessment
+  assessment:
+    evidence_collected: "收集什么证据证明目标达成"
+    success_criteria: "成功的具体标准"
+    misconception_target: "针对哪个已知误解"
+    
+  # Scaffolding
+  scaffolding:
+    visual: "视觉支架"
+    language: "语言支架"
+    extension: "进阶挑战"
+    
+  # Pedagogy Tags
+  pedagogy:
+    framework_stage: "5E-Engage"  # 对应教学框架的哪个阶段
+    ngss_alignment:
+      sep: "开发和使用模型"
+      ccc: "系统和系统模型"
+      dci: "PS4.A"
+    metacognition_point: true  # 是否标记为元认知节点
+    sdt_design:
+      autonomy: "选择机会描述"
+      competence: "成功标准描述"
+      relatedness: "角色描述"
+      
+  # Narration (for TTS/audio generation)
+  narration:
+    teacher_prompt: "教师的引导语"
+    key_questions: ["问题1", "问题2"]
+    transition_to_next: "过渡到下一页的衔接语"
+    
+  # Timing
+  timing:
+    suggested_minutes: 8
+    flexible: true
+```
+
+**Example Page (Interactive - Refraction Activity)**:
+
+```yaml
+page_2:
+  id: "page-002"
+  type: "interactive"
+  title: "拖动激光笔，看光在水中怎么拐弯"
+  
+  learning_contract:
+    target_objective: "LO-01"
+    icap_level: "C"
+    literacy_dimension: "科学思维"
+    visible_evidence: "能画出光路图并解释折射方向"
+  
+  content:
+    brief: "学习者通过拖动虚拟激光笔改变入射角度，实时观察光在水中的折射路径变化"
+    scenario: "潜水员小明发现岸上的鱼位置看起来变了——光在水面发生了折射"
+    task: "调整激光笔角度，观察折射光线方向，记录入射角与折射角的关系"
+    materials: ["激光笔模拟器", "量角器工具", "记录表"]
+    
+  interaction:
+    learner_action: "拖动激光笔改变入射角度"
+    manipulation: 
+      - "激光笔位置（0-90度）"
+      - "水的深度（浅/中/深）"
+      - "显示/隐藏法线"
+    observation_target: "折射光线的角度变化、是否发生全反射"
+    
+  assessment:
+    evidence_collected: "折射角度记录表、手绘光路图"
+    success_criteria: "能正确画出折射光线方向，指出入射角>折射角"
+    misconception_target: "光从空气进入水会直线传播（不折射）"
+    
+  scaffolding:
+    visual: "动态光路图 + 法线辅助线"
+    language: "关键术语卡片：入射角、折射角、法线"
+    extension: "尝试计算折射率（提供斯涅尔定律公式）"
+    
+  pedagogy:
+    framework_stage: "5E-Explore"
+    ngss_alignment:
+      sep: "开发和使用模型"
+      ccc: "因果：机制和解释"
+      dci: "PS4.B"
+    metacognition_point: true
+    sdt_design:
+      autonomy: "自选入射角度和水的深度"
+      competence: "角度变化实时可视化，立即看到结果"
+      relatedness: "小组共同完成折射规律记录表"
+      
+  narration:
+    teacher_prompt: "试着慢慢移动激光笔，仔细观察光线进入水面后发生了什么变化"
+    key_questions: 
+      - "入射角变大时，折射角怎么变？"
+      - "如果光线垂直射入水面，还会折射吗？"
+    transition_to_next: "发现了折射的规律？接下来我们用这个规律解释为什么鱼的位置看起来变了"
+    
+  timing:
+    suggested_minutes: 10
+    flexible: true
+```
+
+**Title Naming Rules** (must follow OpenMAIC convention):
+- ❌ Bad: "概念介绍", "知识讲解", "案例分析", "课堂总结"
+- ✅ Good: "拖动倾角，看射程怎么变", "两份史料为什么说得不一样", "给校园开放日改写导览词"
+- Format: `[动作] + [对象] + [发现/产出]`
+
+**Complete Output Structure**:
+
+```markdown
+# [Activity Name]
+
+## 格式一：文本教案
+（标准Markdown格式，同上）
+
+---
+
+## 格式二：页面级活动方案
+
+```yaml
+activity_scheme:
+  metadata: { ... }
+  pages:
+    - page_1: { ... }
+    - page_2: { ... }
+    # ... all pages
+```
+
+### 页面总览
+
+| 页码 | 类型 | 标题 | 时长 | ICAP | 核心动作 |
+|------|------|------|------|------|---------|
+| P1 | SL | ... | 5min | P | 观察情境 |
+| P2 | IA | ... | 10min | C | 拖动变量 |
+| ... | ... | ... | ... | ... | ... |
+
+### 各页详细设计
+（每个page的完整YAML结构）
+```
+
+---
 
 ## 框架选择指南（Pedagogical Framework Selection Guide）
 
