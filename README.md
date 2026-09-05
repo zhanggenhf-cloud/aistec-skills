@@ -12,8 +12,8 @@ This repository contains three OpenClaw AgentSkills that power the AISTEC (AI-dr
 
 The framework integrates:
 - **Citation verification via multi-API cross-check** (Semantic Scholar + arXiv + CrossRef + Google Scholar + CNKI)
-- **12 verified pedagogical frameworks** auto-matched by decision tree (5E, 7E, 4-Stage, PBL, Design Thinking, IBL, POE, REACT, UbD, GRRF, IDM, Guided Play)
-- **Internal formative assessment feedback** — multi-dimensional evaluation used as system-internal auto-correction, not exposed to end users
+- **13 verified pedagogical frameworks** auto-matched by decision tree (5E, 7E, 4-Stage, PBL, Design Thinking, IBL, POE, REACT, LIA, UbD, GRRF, IDM, Guided Play)
+- **UDL × SDT integrated design** — Universal Design for Learning fused with Self-Determination Theory (autonomy × competence × relatedness)
 - **SSI termination condition** — automatic halt when topics involve scientific controversy, ethical decisions, or social policy
 
 ## Skills
@@ -28,13 +28,16 @@ Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric
 - 5-class hallucination detection (TF/PAC/IH/PH/SH)
 
 ### 2. `science-edu-activity`
-Science education activity plan generator. Grounded in constructivist learning theory and inquiry-based learning, supporting UDL (Universal Design for Learning) mandatory embedding.
+Science education activity plan generator. Grounded in constructivist learning theory and inquiry-based learning, supporting UDL × SDT integrated design, ICAP cognitive engagement assessment, metacognition embedding, and visible-hidden line alignment checking.
 
 **Key features:**
-- 12 pedagogical frameworks auto-selected by decision tree (5E, 7E, 4-Stage, PBL, Design Thinking, IBL, POE, REACT, UbD, GRRF, IDM, Guided Play)
-- UDL (Universal Design for Learning) three-principles mandatory embedding
+- 13 pedagogical frameworks auto-selected by decision tree (5E, 7E, 4-Stage, PBL, Design Thinking, IBL, POE, REACT, LIA, UbD, GRRF, IDM, Guided Play)
+- **UDL × SDT integrated design** — fuses Universal Design for Learning with Self-Determination Theory so "multiple means of engagement" is backed by psychological need satisfaction
+- **ICAP cognitive engagement assessment** — assigns P/A/C/I target levels per activity stage, designs upshifting strategies to ensure cognitive engagement progression
+- **Metacognition embedding** — marks think-aloud prompts, reflection cards, and self-questioning checkpoints in the activity flow
+- **Visible-hidden line alignment check** — ensures every "fun" activity segment maps to a clear learning objective
 - Internal formative assessment feedback — auto-corrects plan without exposing evaluation rubrics
-- Multi-dimensional internal feedback loop (scientific accuracy, educational effectiveness, inquiry process, learning experience)
+- Multi-dimensional internal feedback loop (scientific accuracy, educational effectiveness, inquiry process, learning experience, cognitive engagement, motivation design)
 - SSI termination condition — halts generation for controversial ethical/policy topics
 - CoE citation verification integrated into scientific background knowledge validation
 - STEM/STEAM integration mapping, NGSS 3-dimensional alignment
@@ -61,6 +64,7 @@ All pedagogical frameworks referenced in the skills are verified against real ac
 - **IBL** — Pedaste et al. (2015)
 - **POE/PEE** — White & Gunstone (1992)
 - **REACT** — Crawford (2001)
+- **LIA** — PrimaryConnections (2024)
 - **UbD** — Wiggins & McTighe (2005)
 - **GRRF** — Fisher & Frey (2013)
 - **IDM** — Grant et al. (2017)

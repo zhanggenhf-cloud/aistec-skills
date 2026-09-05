@@ -12,8 +12,8 @@ AI 驱动的科学教育活动智能创作框架
 
 该框架整合了：
 - **多 API 交叉核对引用验证** —— 通过 Semantic Scholar + arXiv + CrossRef + Google Scholar + 知网 等多源交叉确保引用可追溯
-- **12 种经过验证的教学法框架** —— 通过决策树自动匹配（5E、7E、4-Stage、PBL、Design Thinking、IBL、POE、REACT、UbD、GRRF、IDM、Guided Play）
-- **内部形成性评估反馈** —— 多维度评估作为系统内部自动修正机制，不直接向用户暴露评估量规
+- **13 种经过验证的教学法框架** —— 通过决策树自动匹配（5E、7E、4-Stage、PBL、Design Thinking、IBL、POE、REACT、LIA、UbD、GRRF、IDM、Guided Play）
+- **UDL × SDT 整合设计** —— 多元表征×胜任感、多元表达×自主性、多元参与×归属感
 - **SSI 终止条件** —— 当主题涉及科学争议、伦理决策或社会政策时自动停止生成
 
 ## 技能
@@ -28,13 +28,16 @@ AI 驱动的科学教育活动智能创作框架
 - 五类幻觉检测（TF/PAC/IH/PH/SH）
 
 ### 2. `science-edu-activity`（科学教育活动设计）
-科学教育活动方案生成器。基于建构主义学习理论和探究式学习理念，支持 UDL（通用学习设计）三原则强制嵌入。
+科学教育活动方案生成器。基于建构主义学习理论和探究式学习理念，支持 UDL × SDT 整合设计、ICAP 认知参与评估、元认知嵌入与明暗线对齐检查。
 
 **核心特性：**
-- 12 种教学法框架通过决策树自动选择（5E、7E、4-Stage、PBL、Design Thinking、IBL、POE、REACT、UbD、GRRF、IDM、Guided Play）
-- UDL（通用学习设计）三原则强制嵌入
+- 13 种教学法框架通过决策树自动选择（5E、7E、4-Stage、PBL、Design Thinking、IBL、POE、REACT、LIA、UbD、GRRF、IDM、Guided Play）
+- **UDL × SDT 整合设计** —— 通用学习设计与自我决定理论融合，让"多元参与"有心理需求支撑
+- **ICAP 认知参与评估** —— 为每个活动阶段分配 P/A/C/I 档位，设计升档策略，确保认知参与层次递进
+- **元认知嵌入设计** —— 在活动流程中标注出声思考、反思卡、自我提问等关键节点
+- **明暗线对齐检查** —— 确保每个"有趣"的活动环节都指向明确的教学目标
 - 内部形成性评估反馈 —— 自动修正方案，不暴露评估表格
-- 多维度内部反馈循环（科学准确性、教育有效性、探究过程、学习体验）
+- 多维度内部反馈循环（科学准确性、教育有效性、探究过程、学习体验、认知参与、动机设计）
 - SSI 终止条件 —— 对争议性伦理/政策主题自动终止生成
 - CoE 引用验证融入科学知识背景校验
 - STEM/STEAM 整合映射、NGSS 三维对齐
@@ -61,6 +64,7 @@ AI 驱动的科学教育活动智能创作框架
 - **IBL** — Pedaste et al. (2015)
 - **POE/PEE** — White & Gunstone (1992)
 - **REACT** — Crawford (2001)
+- **LIA** — PrimaryConnections (2024)
 - **UbD** — Wiggins & McTighe (2005)
 - **GRRF** — Fisher & Frey (2013)
 - **IDM** — Grant et al. (2017)
