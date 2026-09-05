@@ -31,7 +31,10 @@ Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric
 Science education activity plan generator. Grounded in constructivist learning theory and inquiry-based learning, supporting UDL × SDT integrated design, ICAP cognitive engagement assessment, metacognition embedding, and visible-hidden line alignment checking.
 
 **Key features:**
+- **Dual-format output** — every activity plan includes both (1) a human-readable Markdown lesson plan and (2) a machine-parseable page-level executable scheme ready for digitization (OpenMAIC import, interactive classroom deployment, etc.)
+- 4 page types in executable scheme: `slide` (SL), `interactive` (IA), `quiz` (QZ), `pbl` (PB) — each with learning contract, interaction design, assessment, scaffolding, pedagogy tags, narration, and timing
 - 13 pedagogical frameworks auto-selected by decision tree (5E, 7E, 4-Stage, PBL, Design Thinking, IBL, POE, REACT, LIA, UbD, GRRF, IDM, Guided Play)
+- **Knowledge Graph integration** — automatic prerequisite diagnosis via AISTEC Knowledge Graph (121 nodes across primary science, junior physics/chemistry/biology) before activity design
 - **UDL × SDT integrated design** — fuses Universal Design for Learning with Self-Determination Theory so "multiple means of engagement" is backed by psychological need satisfaction
 - **ICAP cognitive engagement assessment** — assigns P/A/C/I target levels per activity stage, designs upshifting strategies to ensure cognitive engagement progression
 - **Metacognition embedding** — marks think-aloud prompts, reflection cards, and self-questioning checkpoints in the activity flow
