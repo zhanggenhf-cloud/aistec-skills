@@ -56,22 +56,70 @@ First, determine the input type:
 
 ### Phase 2: Knowledge Deconstruction
 
-Load [references/knowledge-deconstruction.md](references/knowledge-deconstruction.md) and apply the 5-stage deconstruction process:
+Load [references/knowledge-deconstruction.md](references/knowledge-deconstruction.md) and apply the 5-stage deconstruction process, **enhanced with automatic Knowledge Graph queries** for prerequisite diagnosis and concept precision:
 
-1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives
-2. **Knowledge Breakdown** — Deconstruct into hierarchical knowledge nodes with real-world examples and common misconceptions
-3. **Instructional Sequencing** — Design pedagogical flow using one of the following frameworks (auto-select based on topic + constraints). **If the topic involves ethical controversy, scientific policy, or socio-scientific issues, terminate immediately and do not proceed.**
-   - **5E Model** (Engage→Explore→Explain→Elaborate→Evaluate) — 适合探究式科学概念
-   - **4-Stage Flow** (Hook→Explore→Discuss→Apply) — 适合博物馆/科技馆互动活动
-   - **PBL (Project-Based Learning)** — 适合真实世界问题解决、跨学科主题
-   - **Design Thinking** — 适合工程设计、创客活动
-   - **IBL (Inquiry-Based Learning)** — 适合开放探究、科学过程技能训练
-   - **Guided Play** — 适合低龄儿童（2-7岁），基于引导式游戏研究（Hirsh-Pasek et al. 等）
-4. **Activity Matching** — Match each knowledge node to appropriate activity types (experiments, models, games, etc.)
-5. **Differentiation** — Create basic/advanced/challenge variants using **UDL (Universal Design for Learning)** principles:
-   - 多元表征：同一概念用视觉/听觉/动手/文字多种方式呈现
-   - 多方式表达：参与者可以用说/写/画/做/演等多种方式展示学习成果
-   - 多方式参与：提供不同难度、不同兴趣切入点的参与路径
+#### Step 0: Knowledge Graph Query (Auto-executed)
+
+Before manual deconstruction, the system automatically queries the AISTEC Knowledge Graph to:
+
+1. **Concept Identification** — Match the user's input topic to a knowledge node in the graph (e.g., "牛顿第一定律" → `PHYS-NEWTON-001`)
+2. **Prerequisite Diagnosis** — Query prerequisites at depth=2 to identify what learners must already know
+3. **Grade Appropriateness Check** — Compare target grade with the concept's designated grade level; flag mismatches
+4. **Cross-grade Path Generation** — If the topic spans multiple grades, identify the optimal learning sequence
+5. **Misconception Pre-loading** — Extract documented common misconceptions for targeted design
+
+**Knowledge Graph Query Results (Internal Use Only)**:
+
+```yaml
+# Example output for "设计一个关于牛顿第一定律的活动"
+concept_match:
+  id: PHYS-NEWTON-001
+  name: 牛顿第一定律
+  grade: 初中八年级
+  
+prerequisites:
+  - id: PHYS-FORCE-001
+    name: 力的概念
+    required: true
+    status: must_verify  # System must verify learners know this
+  - id: PHYS-FORCE-004
+    name: 摩擦力
+    required: true
+  - id: PHYS-FORCE-001
+    name: 惯性（日常概念）
+    required: false  # Recommended but not mandatory
+
+grade_check:
+  target: 小学六年级  # User specified grade
+  concept_grade: 初中八年级
+  warning: "牛顿第一定律是初中概念，小学六年级学生可能处于前运算阶段，建议改用'运动与力'主题"
+  alternative: SCI-MOT-001
+
+misconceptions_preloaded:
+  - "速度大的物体惯性大" → "惯性只与质量有关"
+  - "运动的物体不受力会慢慢停下来" → "停下来是因为摩擦力"
+
+exhibits_suggested:
+  - venue: 中国科技馆
+    name: 惯性展品
+    relation: 演示惯性的日常现象
+```
+
+**Design Adjustments Triggered by KG Results**:
+- If prerequisites are missing → Add a "Quick Review" micro-activity at the beginning
+- If grade mismatch detected → Suggest alternative topics or add scaffolding
+- If misconceptions are known → Embed POE (Predict-Observe-Explain) checkpoints specifically targeting those misconceptions
+- If exhibits are available → Incorporate venue-specific adaptation suggestions
+
+#### Step 1-5: Standard Deconstruction Process
+
+After KG query, proceed with the standard 5-stage deconstruction:
+
+1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives (now enhanced with KG data)
+2. **Knowledge Breakdown** — Deconstruct into hierarchical knowledge nodes with real-world examples and common misconceptions (pre-loaded from KG)
+3. **Instructional Sequencing** — Design pedagogical flow using auto-selected framework
+4. **Activity Matching** — Match each knowledge node to appropriate activity types
+5. **Differentiation** — Create basic/advanced/challenge variants using UDL × SDT principles
 6. **STEM/STEAM Integration Check** — If topic allows, identify cross-disciplinary connections and add integration points
 7. **ICAP Cognitive Engagement Assessment** — Evaluate each knowledge node and activity stage against the ICAP framework (see [references/icap-framework.md](references/icap-framework.md)):
    - Assign a target ICAP level (P/A/C/I) to each activity stage
@@ -942,6 +990,7 @@ Load these as needed during the workflow:
 - [references/sdt-motivation.md](references/sdt-motivation.md) — Self-Determination Theory for motivation design
 - [references/teaching-strategies.md](references/teaching-strategies.md) — Teaching strategy tool mapping
 - [references/edge-cases.md](references/edge-cases.md) — Edge cases and fallback strategies
+- [references/knowledge-graph.md](references/knowledge-graph.md) — Knowledge Graph integration guide for prerequisite diagnosis and concept precision
 
 ## Safety Guidelines
 
