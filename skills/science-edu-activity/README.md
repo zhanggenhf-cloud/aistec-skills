@@ -81,7 +81,7 @@ skills/science-edu-activity/
 │   ├── sdt-motivation.md             # Self-Determination Theory
 │   ├── teaching-strategies.md        # Strategy tool mapping
 │   └── edge-cases.md                 # Edge cases & fallbacks
-└── README.md / README_zh.md
+└── README.md / README.zh.md
 ```
 
 ## License
