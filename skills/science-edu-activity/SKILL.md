@@ -56,72 +56,36 @@ First, determine the input type:
 
 ### Phase 2: Knowledge Deconstruction
 
-Load [references/knowledge-deconstruction.md](references/knowledge-deconstruction.md) and apply the 5-stage deconstruction process, **enhanced with automatic Knowledge Graph queries** for prerequisite diagnosis and concept precision:
+Load [references/knowledge-deconstruction.md](references/knowledge-deconstruction.md) and apply the 5-stage deconstruction process:
 
-#### Step 0: Knowledge Graph Query (Auto-executed)
-
-Before manual deconstruction, the system automatically queries the AISTEC Knowledge Graph to:
-
-1. **Concept Identification** — Match the user's input topic to a knowledge node in the graph (e.g., "牛顿第一定律" → `PHYS-NEWTON-001`)
-2. **Prerequisite Diagnosis** — Query prerequisites at depth=2 to identify what learners must already know
-3. **Grade Appropriateness Check** — Compare target grade with the concept's designated grade level; flag mismatches
-4. **Cross-grade Path Generation** — If the topic spans multiple grades, identify the optimal learning sequence
-5. **Misconception Pre-loading** — Extract documented common misconceptions for targeted design
-
-**Knowledge Graph Query Results (Internal Use Only)**:
-
-```yaml
-# Example output for "设计一个关于牛顿第一定律的活动"
-concept_match:
-  id: PHYS-NEWTON-001
-  name: 牛顿第一定律
-  grade: 初中八年级
-  
-prerequisites:
-  - id: PHYS-FORCE-001
-    name: 力的概念
-    required: true
-    status: must_verify  # System must verify learners know this
-  - id: PHYS-FORCE-004
-    name: 摩擦力
-    required: true
-  - id: PHYS-FORCE-001
-    name: 惯性（日常概念）
-    required: false  # Recommended but not mandatory
-
-grade_check:
-  target: 小学六年级  # User specified grade
-  concept_grade: 初中八年级
-  warning: "牛顿第一定律是初中概念，小学六年级学生可能处于前运算阶段，建议改用'运动与力'主题"
-  alternative: SCI-MOT-001
-
-misconceptions_preloaded:
-  - "速度大的物体惯性大" → "惯性只与质量有关"
-  - "运动的物体不受力会慢慢停下来" → "停下来是因为摩擦力"
-
-exhibits_suggested:
-  - venue: 中国科技馆
-    name: 惯性展品
-    relation: 演示惯性的日常现象
-```
-
-**Design Adjustments Triggered by KG Results**:
-- If prerequisites are missing → Add a "Quick Review" micro-activity at the beginning
-- If grade mismatch detected → Suggest alternative topics or add scaffolding
-- If misconceptions are known → Embed POE (Predict-Observe-Explain) checkpoints specifically targeting those misconceptions
-- If exhibits are available → Incorporate venue-specific adaptation suggestions
-
-#### Step 1-5: Standard Deconstruction Process
-
-After KG query, proceed with the standard 5-stage deconstruction:
-
-1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives (now enhanced with KG data)
-2. **Knowledge Breakdown** — Deconstruct into hierarchical knowledge nodes with real-world examples and common misconceptions (pre-loaded from KG)
-3. **Instructional Sequencing** — Design pedagogical flow using auto-selected framework
-4. **Activity Matching** — Match each knowledge node to appropriate activity types
-5. **Differentiation** — Create basic/advanced/challenge variants using UDL × SDT principles
-6. **STEM/STEAM Integration Check** — If topic allows, identify cross-disciplinary connections and add integration points
-7. **ICAP Cognitive Engagement Assessment** — Evaluate each knowledge node and activity stage against the ICAP framework (see [references/icap-framework.md](references/icap-framework.md)):
+1. **Core Concept Extraction** — Identify topic, principles, prerequisites, learning objectives
+2. **Problem-Logic Translation（问题逻辑转换）** — Before breaking down knowledge, translate from "paper logic" to "problem logic":
+   - **Find the Hook（找准挂钩点）**: Don't start with technical parameters. Ask: *What everyday frustration or wonder does this concept address?* Frame the concept around a relatable problem or curiosity trigger.
+   - **Design the Skyhook Analogy（设计天钩类比）**: For each core abstract concept, create or select an analogy that anchors the unfamiliar to the familiar (e.g., quantum entanglement as "magic gloves," gene editing as "Word find-and-replace"). The analogy must be tested for accuracy — it should illuminate, not mislead.
+   - **Output**: In the activity summary or hook phase, the opening must answer three questions: *What is this like? What is it good for? What does it have to do with me?*
+3. **Knowledge Breakdown** — Deconstruct into hierarchical knowledge nodes with real-world examples and common misconceptions
+4. **Instructional Sequencing** — Design pedagogical flow using one of the following frameworks (auto-select based on topic + constraints). **If the topic involves ethical controversy, scientific policy, or socio-scientific issues, terminate immediately and do not proceed.**
+   - **5E Model** (Engage→Explore→Explain→Elaborate→Evaluate) — 适合探究式科学概念
+   - **4-Stage Flow** (Hook→Explore→Discuss→Apply) — 适合博物馆/科技馆互动活动
+   - **PBL (Project-Based Learning)** — 适合真实世界问题解决、跨学科主题
+   - **Design Thinking** — 适合工程设计、创客活动
+   - **IBL (Inquiry-Based Learning)** — 适合开放探究、科学过程技能训练
+   - **Guided Play** — 适合低龄儿童（2-7岁），基于引导式游戏研究（Hirsh-Pasek et al. 等）
+4. **Activity Matching** — Match each knowledge node to appropriate activity types (experiments, models, games, etc.). For each activity, consider:
+   - Does it include an element of **narrative struggle**? (e.g., the scientist who failed 177 times, the accidental discovery of penicillin, the "shower moment" insight)
+   - Does it make space for **productive failure** (struggle space before answers)?
+   - Does it create a **participation interface** — an open-ended question or hands-on challenge that turns learning into a puzzle?
+5. **Narrative Asset Collection（科学叙事素材）** — Gather story fragments that humanize the science:
+   - **Human struggle**: Specific moments of failure, persistence, or serendipity (e.g., Fleming's messy lab, the microwave inventor's chocolate bar)
+   - **Beauty of accidents**: Cases where the discovery was unplanned — these are often more memorable than "planned genius"
+   - **Contemporary voices**: Quotes or stories from living researchers that show science as an ongoing, uncertain process
+   - *Usage*: Weave these into the Hook/Engage phase or as interstitial storytelling during transitions. Do not fabricate stories — if uncertain, mark as `[narrative: verify source]`.
+6. **Differentiation** — Create basic/advanced/challenge variants using **UDL (Universal Design for Learning)** principles:
+   - 多元表征：同一概念用视觉/听觉/动手/文字多种方式呈现
+   - 多方式表达：参与者可以用说/写/画/做/演等多种方式展示学习成果
+   - 多方式参与：提供不同难度、不同兴趣切入点的参与路径
+7. **STEM/STEAM Integration Check** — If topic allows, identify cross-disciplinary connections and add integration points
+8. **ICAP Cognitive Engagement Assessment** — Evaluate each knowledge node and activity stage against the ICAP framework (see [references/icap-framework.md](references/icap-framework.md)):
    - Assign a target ICAP level (P/A/C/I) to each activity stage
    - Design "upshifting" strategies to elevate engagement (e.g., from Passive listening to Active summarizing to Constructive explaining to Interactive debating)
    - Ensure the overall activity progression shows an upward ICAP trend, not a plateau
@@ -236,28 +200,33 @@ Apply multi-layer error correction from [references/error-correction.md](referen
 - [ ] **元认知嵌入点已标注**：活动流程中明确标记了出声思考、反思卡、自我提问等元认知节点
 - [ ] **动机设计已融入（SDT）**：自主性（选择机会）、胜任感（清晰标准+即时反馈）、归属感（不可替代角色）已覆盖
 - [ ] **有效失败空间已预留**：探究环节保留了适度的"挣扎空间"，没有急于给出答案
+- [ ] **背景知识中已标注 🔬📐🎭⚠️ 四类准确率标记，且⚠️已主动披露当前局限/未知**
+- [ ] **天钩类比已附 accuracy check（说明类比在何处成立、何处不成立）**
+- [ ] **科学叙事素材已收集（人的挣扎/意外之美），且来源可核实或为虚构标记**
+- [ ] **开放性问题已作为参与接口嵌入活动流程（每阶段至少1个）**
+- [ ] **分层沟通设计已执行：核心概念至少有一句话版（给外行）、一段话版（给爱好者）、详细版（给同行）**
+- [ ] **活动引入已回答三个问题：像什么？有什么用？跟我有什么关系？**
 
 Apply accuracy assurance from [references/accuracy-assurance.md](references/accuracy-assurance.md):
 
 Apply accuracy assurance from [references/accuracy-assurance.md](references/accuracy-assurance.md):
-- Add accuracy annotations (🔬 scientific fact, 📐 simplified model, 🎭 analogy)
+- Add accuracy annotations (🔬 scientific fact, 📐 simplified model, 🎭 analogy, ⚠️ known limitation / current uncertainty)
+- For 🎭 analogy annotations: include a brief "accuracy check" note explaining what the analogy captures well and where it breaks down
+- For ⚠️ known limitation: explicitly state the boundaries of current knowledge or technology (e.g., "This process currently works only in lab conditions," "Long-term effects are still being studied") — this builds trust through honesty
 - Flag areas needing expert review
 - Include verification prompts for controversial topics
 
 ## Output Format
 
-Generate **dual-format output** for every activity plan:
+Generate output in standard Markdown following the template in [references/output-schema.md](references/output-schema.md). Include:
 
-1. **Standard Markdown Lesson Plan** (text-based, human-readable)
-2. **Page-Level Executable Activity Scheme** (structured, page-by-page, ready for digitization)
+**分层沟通设计检查点（知识的诅咒防御）**：
+在活动方案生成后，内部自检以下问题：
+- 如果只能用一句话向出租车司机解释这个科学概念，我会说什么？
+- 如果要用三页PPT向投资人展示，核心逻辑是什么？
+- 同行评审需要的三千字版本，证据链是否完整？
 
-Both formats must be generated simultaneously for every activity plan.
-
----
-
-### Format 1: Standard Markdown Lesson Plan
-
-Follow the template in [references/output-schema.md](references/output-schema.md):
+在最终的"活动摘要"或"引入阶段"中，至少呈现**一句话版本**（面向完全陌生的公众），确保活动的入口足够低、挂钩点足够清晰。
 
 ```markdown
 # [Activity Name]
@@ -296,207 +265,6 @@ Follow the template in [references/output-schema.md](references/output-schema.md
 ## 参考资料
 ...
 ```
-
----
-
-### Format 2: Page-Level Executable Activity Scheme
-
-Structured as an array of **Pages**, where each Page is a self-contained instructional unit with explicit learning actions, evidence collection, and assessment alignment.
-
-**Global Structure**:
-
-```yaml
-activity_scheme:
-  metadata:
-    name: "活动名称"
-    duration_minutes: 45
-    target_age: "8-10岁"
-    group_size: "20人"
-    subject: "物理"
-    core_concept: "光的折射"
-    total_pages: 8
-    
-  pages:
-    - page_1: { ... }
-    - page_2: { ... }
-    # ...
-```
-
-**Page Types** (choose one per page):
-
-| Type | Code | Purpose | Learner Action |
-|------|------|---------|---------------|
-| **slide** | SL | Frame problem, present evidence, consolidate method | Observe, read, listen |
-| **interactive** | IA | Manipulate variables, trace structures, run experiments | Drag, adjust, observe changes |
-| **quiz** | QZ | Diagnose misconceptions, compare explanations, check transfer | Choose, justify, explain |
-| **pbl** | PB | Multi-step inquiry, artifact creation, public performance | Investigate, design, present |
-
-**Page Structure Template**:
-
-```yaml
-page_N:
-  id: "page-001"
-  type: "slide"  # SL | IA | QZ | PB
-  title: "学习者会发现/做出的具体事情"  # 禁止用"概念介绍""知识讲解"
-  
-  # Learning Contract
-  learning_contract:
-    target_objective: "对应的学习目标ID"
-    icap_level: "A"  # P=Passive, A=Active, C=Constructive, I=Interactive
-    literacy_dimension: "科学观念"  # 2022课标核心素养维度
-    visible_evidence: "学习者产出的可观察证据"
-  
-  # Content Design
-  content:
-    brief: "自包含的设计说明，200字内"
-    scenario: "真实情境描述（贯穿全程，不是在第1页就丢弃）"
-    task: "学习者的具体任务"
-    materials: ["材料1", "材料2"]
-    
-  # Interaction Design
-  interaction:
-    learner_action: "学习者具体做什么"
-    manipulation: "可调参数/可操元素"
-    observation_target: "观察什么、记录什么"
-    
-  # Assessment
-  assessment:
-    evidence_collected: "收集什么证据证明目标达成"
-    success_criteria: "成功的具体标准"
-    misconception_target: "针对哪个已知误解"
-    
-  # Scaffolding
-  scaffolding:
-    visual: "视觉支架"
-    language: "语言支架"
-    extension: "进阶挑战"
-    
-  # Pedagogy Tags
-  pedagogy:
-    framework_stage: "5E-Engage"  # 对应教学框架的哪个阶段
-    ngss_alignment:
-      sep: "开发和使用模型"
-      ccc: "系统和系统模型"
-      dci: "PS4.A"
-    metacognition_point: true  # 是否标记为元认知节点
-    sdt_design:
-      autonomy: "选择机会描述"
-      competence: "成功标准描述"
-      relatedness: "角色描述"
-      
-  # Narration (for TTS/audio generation)
-  narration:
-    teacher_prompt: "教师的引导语"
-    key_questions: ["问题1", "问题2"]
-    transition_to_next: "过渡到下一页的衔接语"
-    
-  # Timing
-  timing:
-    suggested_minutes: 8
-    flexible: true
-```
-
-**Example Page (Interactive - Refraction Activity)**:
-
-```yaml
-page_2:
-  id: "page-002"
-  type: "interactive"
-  title: "拖动激光笔，看光在水中怎么拐弯"
-  
-  learning_contract:
-    target_objective: "LO-01"
-    icap_level: "C"
-    literacy_dimension: "科学思维"
-    visible_evidence: "能画出光路图并解释折射方向"
-  
-  content:
-    brief: "学习者通过拖动虚拟激光笔改变入射角度，实时观察光在水中的折射路径变化"
-    scenario: "潜水员小明发现岸上的鱼位置看起来变了——光在水面发生了折射"
-    task: "调整激光笔角度，观察折射光线方向，记录入射角与折射角的关系"
-    materials: ["激光笔模拟器", "量角器工具", "记录表"]
-    
-  interaction:
-    learner_action: "拖动激光笔改变入射角度"
-    manipulation: 
-      - "激光笔位置（0-90度）"
-      - "水的深度（浅/中/深）"
-      - "显示/隐藏法线"
-    observation_target: "折射光线的角度变化、是否发生全反射"
-    
-  assessment:
-    evidence_collected: "折射角度记录表、手绘光路图"
-    success_criteria: "能正确画出折射光线方向，指出入射角>折射角"
-    misconception_target: "光从空气进入水会直线传播（不折射）"
-    
-  scaffolding:
-    visual: "动态光路图 + 法线辅助线"
-    language: "关键术语卡片：入射角、折射角、法线"
-    extension: "尝试计算折射率（提供斯涅尔定律公式）"
-    
-  pedagogy:
-    framework_stage: "5E-Explore"
-    ngss_alignment:
-      sep: "开发和使用模型"
-      ccc: "因果：机制和解释"
-      dci: "PS4.B"
-    metacognition_point: true
-    sdt_design:
-      autonomy: "自选入射角度和水的深度"
-      competence: "角度变化实时可视化，立即看到结果"
-      relatedness: "小组共同完成折射规律记录表"
-      
-  narration:
-    teacher_prompt: "试着慢慢移动激光笔，仔细观察光线进入水面后发生了什么变化"
-    key_questions: 
-      - "入射角变大时，折射角怎么变？"
-      - "如果光线垂直射入水面，还会折射吗？"
-    transition_to_next: "发现了折射的规律？接下来我们用这个规律解释为什么鱼的位置看起来变了"
-    
-  timing:
-    suggested_minutes: 10
-    flexible: true
-```
-
-**Title Naming Rules** (must follow OpenMAIC convention):
-- ❌ Bad: "概念介绍", "知识讲解", "案例分析", "课堂总结"
-- ✅ Good: "拖动倾角，看射程怎么变", "两份史料为什么说得不一样", "给校园开放日改写导览词"
-- Format: `[动作] + [对象] + [发现/产出]`
-
-**Complete Output Structure**:
-
-```markdown
-# [Activity Name]
-
-## 格式一：文本教案
-（标准Markdown格式，同上）
-
----
-
-## 格式二：页面级活动方案
-
-```yaml
-activity_scheme:
-  metadata: { ... }
-  pages:
-    - page_1: { ... }
-    - page_2: { ... }
-    # ... all pages
-```
-
-### 页面总览
-
-| 页码 | 类型 | 标题 | 时长 | ICAP | 核心动作 |
-|------|------|------|------|------|---------|
-| P1 | SL | ... | 5min | P | 观察情境 |
-| P2 | IA | ... | 10min | C | 拖动变量 |
-| ... | ... | ... | ... | ... | ... |
-
-### 各页详细设计
-（每个page的完整YAML结构）
-```
-
----
 
 ## 框架选择指南（Pedagogical Framework Selection Guide）
 
@@ -858,6 +626,7 @@ UDL 三原则              SDT 三要素              整合设计问题
 - **难度分层**：基础版/进阶版/挑战版，参与者自选
 - **协作模式**：个人、配对、小组、全班轮换
 - **真实连接**：与个人生活经验、社会议题、职业场景连接
+- **开放性问题设计（参与接口）**：每个阶段至少设计1个开放性问题，让学习者以"科学家"的身份做决策或想象（如"如果你有一吨这种新材料，你会用来做什么？""如果这个现象反过来会怎样？"）
 
 **活动方案中必须标注**：每个阶段提供 ≥1 种参与方式选择。
 
@@ -1202,7 +971,6 @@ Load these as needed during the workflow:
 - [references/sdt-motivation.md](references/sdt-motivation.md) — Self-Determination Theory for motivation design
 - [references/teaching-strategies.md](references/teaching-strategies.md) — Teaching strategy tool mapping
 - [references/edge-cases.md](references/edge-cases.md) — Edge cases and fallback strategies
-- [references/knowledge-graph.md](references/knowledge-graph.md) — Knowledge Graph integration guide for prerequisite diagnosis and concept precision
 
 ## Safety Guidelines
 
