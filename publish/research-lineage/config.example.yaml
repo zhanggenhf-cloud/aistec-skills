@@ -1,0 +1,66 @@
+# Configuration Example for research-lineage
+# Copy this file to config.yaml and fill in your API keys
+
+web_search:
+  # Supported: tavily, serper, bing, google, brave
+  provider: tavily
+  api_key: YOUR_WEB_SEARCH_API_KEY
+  # Optional: max results per query
+  max_results: 10
+
+academic:
+  arxiv:
+    enabled: true
+    # arXiv API is free, no key needed
+    base_url: http://export.arxiv.org/api/query
+  
+  semantic_scholar:
+    enabled: true
+    # Semantic Scholar API is free, no key needed for basic usage
+    # Get API key from https://www.semanticscholar.org/product/api
+    api_key: OPTIONAL_S2_API_KEY
+    base_url: https://api.semanticscholar.org/graph/v1
+  
+  crossref:
+    enabled: true
+    # CrossRef API is free
+    base_url: https://api.crossref.org/works
+  
+  google_scholar:
+    enabled: true
+    # Requires scraper or API wrapper (e.g. serper.dev)
+    # If using serper for Google Scholar:
+    provider: serper
+    api_key: YOUR_SERPER_API_KEY
+  
+  pubmed:
+    enabled: true
+    # PubMed E-utilities is free
+    base_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/
+  
+  cnki:
+    enabled: false
+    # CNKI requires institutional access or manual cookie
+    # Set to true only if you have access
+    cookie: YOUR_CNKI_COOKIE_STRING
+    base_url: https://kns.cnki.net/kns8s/AdvSearch
+
+browser:
+  # For CNKI automation and paywalled sources
+  enabled: false
+  # Use playwright, selenium, or similar
+  driver: playwright
+  headless: true
+
+output:
+  language: bilingual  # english, chinese, bilingual
+  include_mermaid: true
+  include_ascii_timeline: true
+  include_prisma: true
+  include_verification_log: true
+
+# Rate limiting (requests per minute)
+rate_limits:
+  web_search: 10
+  academic_api: 20
+  web_fetch: 30

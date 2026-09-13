@@ -1,0 +1,49 @@
+# Configuration Example for cnki-advanced-search
+# Copy this file to config.yaml and fill in your settings
+
+cnki:
+  # CNKI base URL
+  base_url: https://kns.cnki.net/kns8s/AdvSearch
+  
+  # Authentication method
+  auth:
+    method: cookie  # cookie or institutional
+    cookie: YOUR_CNKI_COOKIE_STRING
+    # For institutional access via VPN:
+    # institution_url: https://your-institution.cnki.net
+  
+  search:
+    # Default source type
+    source_type: academic_journals  # academic_journals, dissertations, conference_papers
+    
+    # Default journal level filter
+    journal_level: CSSCI  # CSSCI, PKU_CORE, CSCD, ALL
+    
+    # Default sort
+    sort_by: citation_count  # citation_count, relevance, date
+    
+    # Results per page
+    page_size: 50  # 10, 20, 50
+    
+    # Maximum records to export
+    max_records: 500
+  
+  export:
+    format: novelty_citation  # novelty_citation, gb_t_7714, other
+    output_format: word  # word, txt
+    include_abstract: true
+
+browser:
+  driver: playwright  # playwright, selenium
+  headless: false  # Set true if no CAPTCHA expected; false for manual CAPTCHA handling
+  timeout: 30000  # ms
+  
+  # CAPTCHA handling
+  captcha:
+    action: pause  # pause, notify, auto_solve
+    notify_method: console  # console, webhook
+
+# Rate limiting
+rate_limits:
+  requests_per_minute: 10
+  delay_between_pages: 2000  # ms
