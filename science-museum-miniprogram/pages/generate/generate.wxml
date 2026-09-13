@@ -1,0 +1,101 @@
+<!-- pages/generate/generate.wxml -->
+<view class="container">
+  <!-- 步骤条 -->
+  <view class="steps">
+    <view class="step {{index <= currentStep ? 'active' : ''}} {{index < currentStep ? 'completed' : ''}}" 
+          wx:for="{{steps}}" wx:key="*this">
+      <view class="step-dot">{{index < currentStep ? '✓' : index + 1}}</view>
+      <text class="step-label">{{item}}</text>
+      <view class="step-line" wx:if="{{index < steps.length - 1}}"></view>
+    </view>
+  </view>
+
+  <!-- 步骤0: 选择模块 -->
+  <view wx:if="{{currentStep === 0}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">选择生成类型</view>
+      <view class="generate-module-list">
+        <view class="generate-module-item" wx:for="{{modules}}" wx:key="key" 
+              bindtap="selectModule" data-key="{{item.key}}">
+          <view class="generate-module-icon" style="background: {{item.color}}15">{{item.icon}}</view>
+          <view class="generate-module-info">
+            <view class="generate-module-name">{{item.name}}</view>
+            <view class="generate-module-template">{{templates[item.key].name}}</view>
+          </view>
+          <text class="list-arrow">›</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 步骤1: 填写参数 -->
+  <view wx:if="{{currentStep === 1 && selectedModule}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">
+        <text style="margin-right: 12rpx;">{{selectedModule.icon}}</text>
+        生成{{templates[selectedModule.key].name}}
+      </view>
+      
+      <view class="form">
+        <view class="input-group" wx:for="{{templates[selectedModule.key].fields}}" wx:key="key">
+          <text class="input-label">{{item.label}}</text>
+          
+          <!-- 文本输入 -->
+          <input wx:if="{{item.type === 'input'}}" 
+                 class="input-field" 
+                 placeholder="{{item.placeholder}}"
+                 data-key="{{item.key}}"
+                 bindinput="onParamInput"
+                 value="{{params[item.key]}}"/>
+          
+          <!-- 选择器 -->
+          <picker wx:if="{{item.type === 'picker'}}" 
+                  mode="selector" 
+                  range="{{item.options}}"
+                  data-key="{{item.key}}"
+                  data-options="{{item.options}}"
+                  bindchange="onPickerChange">
+            <view class="picker-field">
+              <text>{{params[item.key]}}</text>
+              <text class="picker-arrow">▼</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+      
+      <button class="btn btn-primary" bindtap="generateContent" disabled="{{isGenerating}}">
+        {{isGenerating ? '生成中...' : '开始生成'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 步骤2: 生成结果 -->
+  <view wx:if="{{currentStep === 2 && result}}" class="animate-fade-in">
+    <view class="card result-card">
+      <view class="result-header">
+        <view class="card-title">生成结果</view>
+        <view class="result-meta">
+          <text class="tag tag-primary">{{selectedModule.name}}</text>
+          <text class="result-time">{{result.timestamp}}</text>
+        </view>
+      </view>
+      
+      <view class="result-content">
+        <text selectable="true">{{result.content}}</text>
+      </view>
+      
+      <view class="result-actions">
+        <button class="btn btn-sm btn-outline" bindtap="copyResult">
+          <text style="margin-right: 8rpx;">📋</text>复制内容
+        </button>
+        <button class="btn btn-sm btn-outline" bindtap="modifyParams">
+          <text style="margin-right: 8rpx;">✏️</text>修改参数
+        </button>
+      </view>
+    </view>
+    
+    <button class="btn btn-secondary" bindtap="restart" style="margin-top: 20rpx;">
+      生成新内容
+    </button>
+  </view>
+</view>

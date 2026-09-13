@@ -1,0 +1,79 @@
+<!-- pages/profile/profile.wxml -->
+<view class="container">
+  <!-- 用户信息区 -->
+  <view class="user-section">
+    <view class="user-avatar">
+      <image wx:if="{{userInfo && userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" mode="aspectFill"/>
+      <text wx:else style="font-size: 60rpx;">👤</text>
+    </view>
+    <view class="user-info">
+      <text class="user-name">{{userInfo ? userInfo.nickName : '科技馆辅导员'}}</text>
+      <text class="user-tag">{{streak > 0 ? '连续训练 ' + streak + ' 天 🔥' : '开始你的训练之旅'}}</text>
+    </view>
+    <button wx:if="{{!userInfo}}" class="btn btn-sm btn-outline" bindtap="getUserProfile">授权登录</button>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="stats-grid">
+    <view class="stat-item">
+      <text class="stat-number">{{trainingCount}}</text>
+      <text class="stat-label">训练次数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{generateCount}}</text>
+      <text class="stat-label">生成内容</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{evaluateCount}}</text>
+      <text class="stat-label">评估作品</text>
+    </view>
+  </view>
+
+  <!-- 能力分布 -->
+  <view class="card">
+    <view class="card-title">能力分布</view>
+    <view class="ability-list">
+      <view class="ability-item" wx:for="{{abilityScores}}" wx:for-index="key" wx:for-item="score" wx:key="key">
+        <view class="ability-info">
+          <text class="ability-name">{{key === 'exhibit' ? '展品原理' : key === 'guide' ? '辅导词' : key === 'experiment' ? '实验设计' : key === 'drama' ? '科普短剧' : '课程活动'}}</text>
+          <text class="ability-score">{{score}}分</text>
+        </view>
+        <view class="ability-bar">
+          <view class="ability-fill" style="width: {{(score / 5) * 100}}%"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近记录 -->
+  <view class="card" wx:if="{{recentHistory.length > 0}}">
+    <view class="card-title">最近训练</view>
+    <view class="history-list">
+      <view class="history-item" wx:for="{{recentHistory}}" wx:key="id">
+        <view class="history-left">
+          <text class="history-module">{{item.moduleName}}</text>
+          <text class="history-task">{{item.taskType === 'A' ? '类型A' : item.taskType === 'B' ? '类型B' : '类型C'}}</text>
+        </view>
+        <view class="history-right">
+          <text class="history-score">{{item.score}}分</text>
+          <text class="history-date">{{item.date}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置 -->
+  <view class="card settings-card">
+    <view class="card-title">设置</view>
+    <view class="setting-item" bindtap="clearHistory">
+      <text class="setting-icon">🗑️</text>
+      <text class="setting-name">清除所有记录</text>
+      <text class="list-arrow">›</text>
+    </view>
+    <view class="setting-item">
+      <text class="setting-icon">📖</text>
+      <text class="setting-name">关于</text>
+      <text class="setting-value">v1.0.0</text>
+    </view>
+  </view>
+</view>

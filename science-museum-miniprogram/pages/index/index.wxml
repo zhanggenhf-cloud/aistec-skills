@@ -1,0 +1,55 @@
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <!-- 欢迎区 -->
+  <view class="welcome-section">
+    <text class="welcome-title">科技馆辅导员能力训练</text>
+    <text class="welcome-subtitle">五大核心能力 · 三种训练模式</text>
+    <view class="today-status {{todayTraining ? 'done' : ''}}">
+      <text class="status-dot"></text>
+      <text class="status-text">{{todayTraining ? '今日已完成训练' : '今日尚未训练'}}</text>
+    </view>
+  </view>
+
+  <!-- 能力雷达图 -->
+  <view class="card radar-card">
+    <view class="card-title">能力雷达</view>
+    <canvas canvas-id="radarChart" class="radar-canvas" style="width: 300px; height: 260px;"></canvas>
+    <view class="radar-legend">
+      <view class="legend-item" wx:for="{{modules}}" wx:key="key">
+        <view class="legend-dot" style="background: {{item.color}}"></view>
+        <text class="legend-text">{{item.name}}</text>
+        <text class="legend-score">{{abilityScores[item.key] || 0}}分</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 三大模式 -->
+  <view class="card">
+    <view class="card-title">选择模式</view>
+    <view class="mode-list">
+      <view class="mode-item" wx:for="{{modeCards}}" wx:key="key" bindtap="onModeTap" data-path="{{item.path}}">
+        <view class="mode-icon" style="background: {{item.color}}20; color: {{item.color}}">{{item.icon}}</view>
+        <view class="mode-info">
+          <view class="mode-title">{{item.title}}</view>
+          <view class="mode-subtitle">{{item.subtitle}}</view>
+          <view class="mode-desc">{{item.desc}}</view>
+        </view>
+        <text class="list-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 五大能力模块 -->
+  <view class="card">
+    <view class="card-title">五大核心能力</view>
+    <view class="module-grid">
+      <view class="module-item" wx:for="{{modules}}" wx:key="key" bindtap="onModuleTap" data-key="{{item.key}}">
+        <view class="module-icon" style="background: {{item.color}}15">{{item.icon}}</view>
+        <view class="module-name">{{item.name}}</view>
+        <view class="module-score" wx:if="{{abilityScores[item.key] > 0}}">
+          {{abilityScores[item.key]}}分
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

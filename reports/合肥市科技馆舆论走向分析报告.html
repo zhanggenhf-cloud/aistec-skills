@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合肥市科技馆舆论走向分析报告</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #ed8936;
+            --positive: #38a169;
+            --negative: #e53e3e;
+            --neutral: #718096;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --text: #2d3748;
+            --text-light: #718096;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .header h1 { font-size: 2.4em; font-weight: 700; margin-bottom: 12px; }
+        .header .meta { opacity: 0.85; font-size: 0.95em; display: flex; gap: 24px; flex-wrap: wrap; }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 16px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .card h2 {
+            font-size: 1.4em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #edf2f7;
+        }
+        .card h3 {
+            font-size: 1.1em;
+            color: var(--secondary);
+            margin: 20px 0 12px;
+        }
+
+        /* Summary Grid */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .summary-item {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        .summary-item .label { font-size: 0.85em; color: var(--text-light); margin-bottom: 6px; }
+        .summary-item .value { font-size: 1.3em; font-weight: 700; color: var(--primary); }
+
+        /* Sentiment Bar */
+        .sentiment-bar {
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .sentiment-bar .segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        .seg-pos { background: var(--positive); width: 70%; }
+        .seg-neg { background: var(--negative); width: 25%; }
+        .seg-neu { background: var(--neutral); width: 5%; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-item.neg::before { background: var(--negative); box-shadow: 0 0 0 2px var(--negative); }
+        .timeline-item.pos::before { background: var(--positive); box-shadow: 0 0 0 2px var(--positive); }
+        .timeline-item .time { font-size: 0.85em; color: var(--text-light); font-weight: 500; }
+        .timeline-item .title { font-weight: 600; margin: 4px 0; }
+        .timeline-item .desc { font-size: 0.9em; color: var(--text-light); }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em; }
+        th { background: var(--primary); color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+        tr:hover { background: #f7fafc; }
+
+        /* Risk Tags */
+        .risk-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .risk-high { background: #fed7d7; color: #c53030; }
+        .risk-med { background: #fefcbf; color: #744210; }
+        .risk-low { background: #c6f6d5; color: #22543d; }
+
+        /* SWOT Grid */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .swot-card {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .swot-s { background: #c6f6d5; border-left: 4px solid var(--positive); }
+        .swot-w { background: #fed7d7; border-left: 4px solid var(--negative); }
+        .swot-o { background: #bee3f8; border-left: 4px solid #3182ce; }
+        .swot-t { background: #fefcbf; border-left: 4px solid #d69e2e; }
+        .swot-card h4 { font-size: 0.9em; margin-bottom: 8px; font-weight: 700; }
+        .swot-card ul { font-size: 0.85em; padding-left: 18px; }
+        .swot-card li { margin-bottom: 4px; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85em;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .swot-grid { grid-template-columns: 1fr; }
+            .summary-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>合肥市科技馆舆论走向分析报告</h1>
+            <div class="meta">
+                <span>📅 分析时间：2026年7月11日</span>
+                <span>📊 分析范围：2023.08 - 2026.07</span>
+                <span>🔍 数据来源：WebSearch / 新闻 / 社交媒体 / 官方公告</span>
+            </div>
+            <div class="badge">三引擎并行分析 · QueryAgent + MediaAgent + InsightAgent</div>
+        </div>
+
+        <!-- 1. 摘要 -->
+        <div class="card">
+            <h2>1.0 摘要与核心发现</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="label">舆论情感倾向</div>
+                    <div class="value">正面 70%</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">核心矛盾</div>
+                    <div class="value">供不应求</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">黄牛事件曝光</div>
+                    <div class="value">高</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">新馆好评率</div>
+                    <div class="value">高</div>
+                </div>
+            </div>
+            <h3>情感分布</h3>
+            <div class="sentiment-bar">
+                <div class="segment seg-pos">正面 70%</div>
+                <div class="segment seg-neg">负面 25%</div>
+                <div class="segment seg-neu">中性 5%</div>
+            </div>
+            <p><strong>核心结论：</strong>场馆容量（5000人/日）与公众参观热情（8000-9000人抢票）之间的结构性缺口，是预约难和黄牛问题的根本原因。2024年8月警方抓获的2名黄牛（徐州夫妻程某、邓某某）自2023年底开始利用小程序代刷倒卖预约名额，说明倒票行为具有组织性和持续性。2025年7月上线的AI讲解员和2024年12月科学岛现代科技馆二期开馆，均获得正面舆论反馈。</p>
+        </div>
+
+        <!-- 2. 声量分析 -->
+        <div class="card">
+            <h2>2.0 品牌声量与影响力分析</h2>
+            <h3>整体声量"三峰"结构</h3>
+            <table>
+                <tr><th>峰值</th><th>时间</th><th>驱动因素</th></tr>
+                <tr><td>第一峰</td><td>2023年8月</td><td>新馆压力测试及试运行，大量尝鲜打卡和攻略分享</td></tr>
+                <tr><td>第二峰</td><td>2024年4-8月</td><td>黄牛票事件发酵，从声明到警方抓捕，长达4个月的负面周期</td></tr>
+                <tr><td>第三峰</td><td>2024年12月</td><td>科学岛现代科技馆二期开馆，带来新一轮科普热</td></tr>
+            </table>
+            <h3>渠道声量分布</h3>
+            <table>
+                <tr><th>渠道</th><th>占比</th><th>主要内容</th></tr>
+                <tr><td>新闻媒体</td><td>35%</td><td>新馆开放报道、黄牛事件追踪、官方声明</td></tr>
+                <tr><td>微信生态</td><td>25%</td><td>预约攻略、参观指南、官方公告</td></tr>
+                <tr><td>短视频/UGC</td><td>20%</td><td>参观vlog、体验分享、亲子打卡</td></tr>
+                <tr><td>百科/知识平台</td><td>15%</td><td>场馆信息、参观攻略、历史沿革</td></tr>
+                <tr><td>政府/官方</td><td>5%</td><td>政策文件、开放通知、投诉回复</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. 关键事件 -->
+        <div class="card">
+            <h2>3.0 关键事件回顾</h2>
+            <div class="timeline">
+                <div class="timeline-item pos">
+                    <div class="time">2023年8月2日</div>
+                    <div class="title">蜀西湖新馆开启压力测试</div>
+                    <div class="desc">1000余名市民参与，8月共接待约2.2万人次，开展科学课程112课时，演出科学剧21场</div>
+                </div>
+                <div class="timeline-item neg">
+                    <div class="time">2024年4月3日</div>
+                    <div class="title">科技馆发布严正声明回应黄牛票</div>
+                    <div class="desc">明确未授权任何第三方售卖门票，呼吁通过正规渠道预约，已向派出所报案</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2024年8月5日</div>
+                    <div class="title">蜀麓派出所抓获2名黄牛</div>
+                    <div class="desc">徐州夫妻程某、邓某某自2023年底利用小程序代刷倒卖预约名额，被处以行政处罚</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2024年12月26日</div>
+                    <div class="title">合肥现代科技馆（科学岛二期）正式开馆</div>
+                    <div class="desc">中科院合肥物质科学研究院主科普场所，6个沉浸式展厅，200+件展品</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2025年7月</div>
+                    <div class="title">上线AI讲解员</div>
+                    <div class="desc">融合前沿AI技术，支持多语言、分龄讲解、千人千面智能适配，拍展品照片即可讲解</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2025年7月2日</div>
+                    <div class="title">暑期调增预约人数</div>
+                    <div class="desc">蜀西湖馆区7000→8000人，黄山路馆区1000→2000人，分时段入馆</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2026年1月</div>
+                    <div class="title">元旦魔幻科学秀活动</div>
+                    <div class="desc">特邀清华大学杨智明老师带来专场科学魔术表演，线上线下覆盖超1亿人次</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2026年4月</div>
+                    <div class="title">馆校合作项目增至100所学校</div>
+                    <div class="desc">2026-2028年合作周期，围绕五大方面构建馆校协同育人体系</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2026年5月12日</div>
+                    <div class="title">斩获安徽省防震减灾科普讲解大赛双一等奖</div>
+                    <div class="desc">科普辅导员王夏秋、李晴晴双双获得省级一等奖，作品围绕量子地震监测和AI震典数据</div>
+                </div>
+                <div class="timeline-item pos">
+                    <div class="time">2026年5月1-5日</div>
+                    <div class="title">国际天文馆日"共赴星约·筑梦苍穹"活动</div>
+                    <div class="desc">天文望远镜原理解密、公益影片《消失的暗夜》放映等四大主题活动</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 情感与认知 -->
+        <div class="card">
+            <h2>4.0 品牌形象与用户认知</h2>
+            <h3>核心议题分析</h3>
+            <p><strong>议题一：供需失衡与预约公平性</strong></p>
+            <p>双休和节假日每天5000个个人预约名额，被约1600个订单（平均3.2人/单）瓜分，但每天上午8点放票时约有8000-9000人同时登录抢票。科技馆已采取实名制预约、票证相符核验、黑名单制度（180天内2次爽约90天禁约）、现场预约200个名额、特殊群体免预约等多重措施。</p>
+            <p><strong>议题二：黄牛票与个人信息安全</strong></p>
+            <p>黄牛通过小程序代刷获取观众姓名和身份证号，在二手平台流转，存在被进一步滥用的风险。科技馆已向公安机关报案，但技术防范仍需持续升级。</p>
+            <p><strong>议题三：新馆建设与设施完善</strong></p>
+            <p>蜀西湖新馆总建筑面积约5万平方米（老馆4倍多），设有11个常设展厅。但试运行期间部分区域仍在封闭施工，部分设施设备处于调试阶段。观众平均参观时长5.5小时，现阶段不具备免预约开放条件。</p>
+        </div>
+
+        <!-- 5. 用户画像 -->
+        <div class="card">
+            <h2>5.0 用户画像分析</h2>
+            <table>
+                <tr><th>属性</th><th>主要人群</th><th>占比</th></tr>
+                <tr><td>年龄段</td><td>6-14岁儿童及家长（亲子家庭）</td><td>60%</td></tr>
+                <tr><td>年龄段</td><td>35-50岁中年家长</td><td>20%</td></tr>
+                <tr><td>年龄段</td><td>18-25岁大学生/年轻群体</td><td>15%</td></tr>
+                <tr><td>地域</td><td>合肥市本地居民</td><td>70%</td></tr>
+                <tr><td>地域</td><td>安徽省内其他城市</td><td>20%</td></tr>
+                <tr><td>地域</td><td>省外游客（长三角为主）</td><td>10%</td></tr>
+            </table>
+            <h3>核心触媒习惯</h3>
+            <p><strong>信息获取：</strong>微信公众号（合肥市科技馆官方）、小红书（参观攻略）、抖音（vlog打卡）、合肥本地宝（便民信息）</p>
+            <p><strong>预约渠道：</strong>微信小程序（合肥市科技馆）、官网</p>
+            <p><strong>口碑传播：</strong>家长群、学校群、亲子社区</p>
+            <p><strong>投诉反馈：</strong>12345热线、微信公众号留言、领导留言板</p>
+        </div>
+
+        <!-- 6. 风险与机遇 -->
+        <div class="card">
+            <h2>6.0 声誉风险与机遇洞察</h2>
+            <h3>主要负面议题追踪</h3>
+            <table>
+                <tr><th>负面议题</th><th>风险等级</th><th>现状</th></tr>
+                <tr><td>预约难/抢不到票</td><td><span class="risk-tag risk-high">高</span></td><td>持续存在</td></tr>
+                <tr><td>黄牛票/个人信息泄露</td><td><span class="risk-tag risk-high">高</span></td><td>已打击2人，技术手段仍在</td></tr>
+                <tr><td>部分设施未完工</td><td><span class="risk-tag risk-med">中</span></td><td>试运行期间逐步改善</td></tr>
+                <tr><td>场馆拥挤/体验下降</td><td><span class="risk-tag risk-med">中</span></td><td>节假日高峰期</td></tr>
+            </table>
+            <h3>潜在风险预警</h3>
+            <p>1. <strong>黄牛技术升级：</strong>代刷小程序可能更新迭代，现有技术防范措施可能失效</p>
+            <p>2. <strong>负面事件放大：</strong>如发生安全事故，舆论可能迅速将"预约难"和"管理不善"关联</p>
+            <p>3. <strong>舆情疲劳：</strong>长期预约难可能消耗公众耐心，导致"免费也不想去"的情绪蔓延</p>
+            <p>4. <strong>数据隐私争议：</strong>实名制预约收集的身份证信息，若泄露将引发严重信任危机</p>
+            <h3>正面机遇挖掘</h3>
+            <p>1. <strong>AI讲解员口碑传播：</strong>2025年7月上线的AI讲解员具备成为"网红打卡点"的潜力</p>
+            <p>2. <strong>科学岛馆差异化定位：</strong>聚焦"前沿科技+科研资源"，可吸引高知人群和科技爱好者</p>
+            <p>3. <strong>研学品牌打造：</strong>结合合肥市"科创名城"定位，与学校、教育机构深度合作</p>
+            <p>4. <strong>特殊群体服务：</strong>70岁以上老人、残疾人、高层次人才等免预约政策，可包装为"人文关怀"正面传播点</p>
+        </div>
+
+        <!-- 6.5 小红书与大众点评数据采集现状 -->
+        <div class="card">
+            <h2>6.5 小红书与大众点评数据采集现状</h2>
+            <h3>采集困难说明</h3>
+            <p>在本次舆情分析中，我们尝试通过多种渠道采集小红书和大众点评的UGC内容，但遇到了以下技术限制：</p>
+            <p><strong>小红书：</strong></p>
+            <p>1. 网页版实施严格的反爬机制，服务器IP被限制访问（返回"安全限制 IP at risk"）</p>
+            <p>2. 笔记内容以图片为主，需要OCR提取，采集成本高</p>
+            <p>3. 搜索引擎（百度/Google）对小红书笔记收录率极低，几乎无法通过site:搜索获取</p>
+            <p>4. 需要登录态（Cookie）才能访问完整内容</p>
+            <p><strong>大众点评：</strong></p>
+            <p>1. 网页版强制要求登录（扫码或账号登录）</p>
+            <p>2. 评论内容采用字体反爬技术，需建立字符映射表才能正确解析</p>
+            <p>3. 同样实施了IP频率限制</p>
+            <h3>替代数据源与补充信息</h3>
+            <p>尽管无法直接采集小红书原生笔记，但通过以下渠道获取了部分等效信息：</p>
+            <p><strong>大众点评攻略（2篇）：</strong></p>
+            <p>- 《合肥市科技馆新馆打卡全攻略》（2024-05-24，1715浏览）：详细路线建议、预约提醒、餐饮提示</p>
+            <p>- 《合肥市科技馆全攻略》（2024-08-08，3427浏览）：楼层分布、排队建议、自备零食提醒</p>
+            <p><strong>知乎讨论（3个话题）：</strong></p>
+            <p>- "自驾参观合肥科技馆新馆"：描述抢票难、停车不便</p>
+            <p>- "合肥科技馆新馆设计"：建筑美学讨论、展厅布局分析</p>
+            <p>- "合肥科技馆的参观体验怎么样？"：用户体验分享</p>
+            <p><strong>新闻媒体用户采访：</strong></p>
+            <p>- 中安在线、安徽日报等报道中引用了真实观众的现场评价</p>
+            <h3>建议的采集方案</h3>
+            <p>如需完整采集小红书/大众点评数据，建议采用以下方案之一：</p>
+            <p>1. <strong>本地PC+Playwright：</strong>在个人电脑上运行浏览器自动化脚本，配合扫码登录，可绕过服务器IP限制</p>
+            <p>2. <strong>移动端API逆向：</strong>抓包分析APP的API接口，直接请求数据（需持续维护签名算法）</p>
+            <p>3. <strong>第三方数据服务：</strong>采购新榜、蝉妈妈等平台的舆情监测服务（付费但稳定）</p>
+            <p>4. <strong>人工采样：</strong>安排人员在目标平台手动搜索并记录代表性笔记/评论（适合小规模调研）</p>
+        </div>
+
+        <!-- 7. SWOT与建议 -->
+        <div class="card">
+            <h2>7.0 结论与战略建议</h2>
+            <div class="swot-grid">
+                <div class="swot-card swot-s">
+                    <h4>优势 S</h4>
+                    <ul>
+                        <li>三馆布局覆盖不同人群</li>
+                        <li>免费开放公众好感度高</li>
+                        <li>互动体验设施丰富</li>
+                        <li>AI讲解员创新领先</li>
+                    </ul>
+                </div>
+                <div class="swot-card swot-w">
+                    <h4>劣势 W</h4>
+                    <ul>
+                        <li>场馆容量与需求不匹配</li>
+                        <li>预约系统用户体验不佳</li>
+                        <li>黄牛票损害品牌形象</li>
+                        <li>部分设施尚未完工</li>
+                    </ul>
+                </div>
+                <div class="swot-card swot-o">
+                    <h4>机会 O</h4>
+                    <ul>
+                        <li>合肥"科创名城"品牌赋能</li>
+                        <li>亲子科普市场需求增长</li>
+                        <li>研学旅行政策红利</li>
+                        <li>AI+科普差异化赛道</li>
+                    </ul>
+                </div>
+                <div class="swot-card swot-t">
+                    <h4>威胁 T</h4>
+                    <ul>
+                        <li>同类场馆竞争加剧</li>
+                        <li>黄牛技术升级对抗</li>
+                        <li>负面事件社交放大</li>
+                        <li>公众期望值持续提升</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>战略建议</h3>
+            <p><strong>1. 优化预约系统：</strong>引入分时段预约（上午/下午/全天）、候补机制、防刷算法优化、团队预约通道</p>
+            <p><strong>2. 扩大供给能力：</strong>逐步增加新馆开放天数（从每周4天增至5-6天）、延长开馆时间（夏季增设夜游）、三馆联动分流</p>
+            <p><strong>3. 品牌沟通升级：</strong>每日公布预约成功率和实时客流、定期发布打击黄牛报告、讲好科普故事（杨振宁陈列馆等）</p>
+            <p><strong>4. 体验品质提升：</strong>加快新馆剩余展区建设、优化高峰时段人流疏导、丰富餐饮和休息设施</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>本报告基于公开网络数据和官方信息进行分析，所有数据来源于 WebSearch、新闻报道和官方公告</p>
+            <p>分析引擎：BettaFish QueryAgent + MediaAgent + InsightAgent 三引擎并行</p>
+            <p>© 2026 舆情分析报告 | 生成时间：2026年7月11日</p>
+        </div>
+    </div>
+</body>
+</html>

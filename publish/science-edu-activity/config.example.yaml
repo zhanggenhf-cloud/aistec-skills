@@ -1,0 +1,48 @@
+# Configuration Example for science-edu-activity
+# Copy this file to config.yaml and fill in your API keys
+
+web_search:
+  provider: tavily
+  api_key: YOUR_WEB_SEARCH_API_KEY
+  max_results: 10
+
+academic:
+  arxiv:
+    enabled: true
+    base_url: http://export.arxiv.org/api/query
+  
+  semantic_scholar:
+    enabled: true
+    api_key: OPTIONAL_S2_API_KEY
+    base_url: https://api.semanticscholar.org/graph/v1
+  
+  google_scholar:
+    enabled: true
+    provider: serper
+    api_key: YOUR_SERPER_API_KEY
+  
+  cnki:
+    enabled: false
+    cookie: YOUR_CNKI_COOKIE_STRING
+
+browser:
+  enabled: false
+  driver: playwright
+  headless: true
+
+output:
+  language: bilingual
+  include_ngss_alignment: true
+  include_udl_plan: true
+  include_stem_map: true
+  include_formative_assessment: true
+
+pedagogy:
+  default_framework: auto  # auto, 5E, 4-Stage, PBL, DesignThinking, SSI, IBL
+  include_safety_warnings: true
+  include_contingency_plans: true
+
+# Rate limiting
+rate_limits:
+  web_search: 10
+  academic_api: 20

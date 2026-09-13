@@ -1,0 +1,21 @@
+/* pages/evaluate/evaluate.wxss */
+.criteria-box {
+  background: #e6f7ff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-top: 16rpx;
+}
+
+.criteria-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #096dd9;
+  margin-bottom: 12rpx;
+}
+
+.criteria-content {
+  font-size: 26rpx;
+  color: var(--text);
+  line-height: 1.8;
+  white-space: pre-line;
+}

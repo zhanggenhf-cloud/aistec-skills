@@ -1,0 +1,105 @@
+<!-- pages/evaluate/evaluate.wxml -->
+<view class="container">
+  <!-- 步骤条 -->
+  <view class="steps">
+    <view class="step {{index <= currentStep ? 'active' : ''}} {{index < currentStep ? 'completed' : ''}}" 
+          wx:for="{{steps}}" wx:key="*this">
+      <view class="step-dot">{{index < currentStep ? '✓' : index + 1}}</view>
+      <text class="step-label">{{item}}</text>
+      <view class="step-line" wx:if="{{index < steps.length - 1}}"></view>
+    </view>
+  </view>
+
+  <!-- 步骤0: 选择模块 -->
+  <view wx:if="{{currentStep === 0}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">选择评估模块</view>
+      <view class="card-subtitle">根据你的作品类型选择对应能力模块</view>
+      <view class="module-list">
+        <view class="module-row" wx:for="{{modules}}" wx:key="key" bindtap="selectModule" data-key="{{item.key}}">
+          <view class="module-row-icon" style="background: {{item.color}}15">{{item.icon}}</view>
+          <view class="module-row-info">
+            <view class="module-row-name">{{item.name}}</view>
+            <view class="module-row-desc">{{item.desc}}</view>
+          </view>
+          <text class="list-arrow">›</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 步骤1: 上传作品 -->
+  <view wx:if="{{currentStep === 1 && selectedModule}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">
+        <text style="margin-right: 12rpx;">{{selectedModule.icon}}</text>
+        评估{{selectedModule.name}}作品
+      </view>
+      
+      <!-- 评估标准提示 -->
+      <view class="criteria-box">
+        <view class="criteria-title">📋 评估标准</view>
+        <text class="criteria-content">{{criteria[selectedModule.key]}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">你的作品</view>
+      <textarea class="textarea-field" 
+                placeholder="请在此粘贴你的作品（辅导词、实验方案、短剧脚本、活动方案等）..." 
+                bindinput="onWorkInput"
+                value="{{userWork}}"
+                maxlength="5000"></textarea>
+      <button class="btn btn-primary" bindtap="submitEvaluation" disabled="{{isEvaluating}}">
+        {{isEvaluating ? '评估中...' : '提交评估'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 步骤2: 评估结果 -->
+  <view wx:if="{{currentStep === 2 && evaluation}}" class="animate-fade-in">
+    <!-- 总分 -->
+    <view class="card score-card">
+      <view class="score-circle">
+        <text class="score-number">{{evaluation.average}}</text>
+        <text class="score-total">/5</text>
+      </view>
+      <view class="score-label">综合评分</view>
+      <view class="stars">
+        <text class="star {{index < Math.round(evaluation.average) ? 'active' : ''}}" wx:for="[1,2,3,4,5]" wx:key="*this">★</text>
+      </view>
+    </view>
+
+    <!-- 维度得分 -->
+    <view class="card">
+      <view class="card-title">维度得分</view>
+      <view class="dimension-list">
+        <view class="dimension-item" wx:for="{{evaluation.scores}}" wx:key="dimension">
+          <view class="dimension-header">
+            <text class="dimension-name">{{item.dimension}}</text>
+            <text class="dimension-score">{{item.score}}分</text>
+          </view>
+          <view class="dimension-bar">
+            <view class="dimension-fill" style="width: {{item.score * 20}}%; background: {{item.score >= 4 ? '#52c41a' : item.score >= 3 ? '#faad14' : '#ff4d4f'}}"></view>
+          </view>
+          <text class="dimension-comment">{{item.comment}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 总结与建议 -->
+    <view class="card">
+      <view class="card-title">AI评价</view>
+      <text class="summary-text">{{evaluation.summary}}</text>
+      <view class="suggestions">
+        <view class="suggestion-title">改进建议：</view>
+        <view class="suggestion-item" wx:for="{{evaluation.suggestions}}" wx:key="*this">
+          <text class="suggestion-dot">•</text>
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="btn btn-primary" bindtap="restart">评估新作品</button>
+  </view>
+</view>

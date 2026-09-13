@@ -1,0 +1,473 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-13T18:09:44.567Z",
+  "entries": {
+    "memory:memory/2026-07-07.md:21:36": {
+      "key": "memory:memory/2026-07-07.md:21:36",
+      "path": "memory/2026-07-07.md",
+      "startLine": 21,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "| 技能 | 文件状态 | 加载状态 | |------|----------|----------| | research-lineage | 头尾完整 | 正常 | | science-edu-activity | 头尾完整 | 正常 | | science-edu-template-trainer | 头尾完整 | 正常 | | example-library.md | 头尾完整 | 正常 | | error-correction.md | 头尾完整 | 正常 | | accuracy-assurance.md | 头尾完整 | 正常 | | integration-guide.md | 头尾完整 | 正常 | ## 未解决事项 - kimi_search 间歇性 404 问题，仍标记为外部服务问题，暂时挂起。 ## 下一步 7 月 4 日的所有核心工作（三个技能深度优化）已全部完成并验证。可以转向新任务。",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4175129562616348,
+      "maxScore": 0.4175129562616348,
+      "firstRecalledAt": "2026-07-07T06:38:08.646Z",
+      "lastRecalledAt": "2026-07-07T06:38:08.646Z",
+      "queryHashes": [
+        "59d9f1cfb0ac"
+      ],
+      "recallDays": [
+        "2026-07-07"
+      ],
+      "conceptTags": [
+        "research-lineage",
+        "science-edu-activity",
+        "science-edu-template-trainer",
+        "example-library.md",
+        "error-correction.md",
+        "accuracy-assurance.md",
+        "integration-guide.md",
+        "kimi-search"
+      ]
+    },
+    "memory:memory/2026-07-07.md:1:27": {
+      "key": "memory:memory/2026-07-07.md:1:27",
+      "path": "memory/2026-07-07.md",
+      "startLine": 1,
+      "endLine": 27,
+      "source": "memory",
+      "snippet": "# 2026-07-07 记忆 - Gateway 重启验证与技能加载确认 ## 背景 用户说\"继续工作\"，即继续 7 月 4 日中断的工作。 ## 上次剩余待办回顾（来自 2026-07-04 记忆） - [x] 将检索到的新教育框架实际写入 science-edu-activity 和 science-edu-template-trainer - [x] 将 CiteSpace/VOSviewer 方法写入 research-lineage - [x] 验证 science-edu-template-trainer 文件末尾是否残留旧内容 - [x] 为 science-edu-activity 的 example-library.md 添加新框架示例（PBL/SSI/DT/POE/7E） - [x] 验证所有修改后的 SKILL.md 文件能否正确加载（本次完成） - [ ] 解决 kimi_search 间歇性 404 问题（外部服务问题，暂无法解决，挂起） ## 本次操作 1. 重启 openclaw gateway（事先告知用户） 2. 检查 gateway 状态：pid 从 317719 → 1016386，RPC probe ok 3. 检查日志中是否有 skill 加载错误：未发现任何 skill 相关报错 4. 验证 3 个主 SKILL.md 文件和 4 个引用文件的头尾完整性：全部正常，无截断或残留 ## 验证结果 | 技能 | 文件状态 | 加载状态 | |------|----------|----------| | research-lin",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.38628205955028533,
+      "maxScore": 0.38628205955028533,
+      "firstRecalledAt": "2026-07-07T06:38:08.646Z",
+      "lastRecalledAt": "2026-07-07T06:38:08.646Z",
+      "queryHashes": [
+        "59d9f1cfb0ac"
+      ],
+      "recallDays": [
+        "2026-07-07"
+      ],
+      "conceptTags": [
+        "gateway",
+        "science-edu-activity",
+        "science-edu-template-trainer",
+        "citespace/vosviewer",
+        "research-lineage",
+        "example-library.md",
+        "pbl/ssi/dt/poe/7e",
+        "skill.md"
+      ]
+    },
+    "memory:memory/2026-07-04.md:77:91": {
+      "key": "memory:memory/2026-07-04.md:77:91",
+      "path": "memory/2026-07-04.md",
+      "startLine": 77,
+      "endLine": 91,
+      "source": "memory",
+      "snippet": "- [x] 验证 science-edu-template-trainer 文件末尾是否残留旧内容（已清理） - [x] 为 science-edu-activity 的 example-library.md 添加新框架的示例（PBL、SSI、Design Thinking、POE、7E） - [ ] 解决 kimi_search 间歇性 404 问题（外部服务问题，暂无法解决） - [x] 验证所有修改后的 SKILL.md 文件能否正确加载（已重启 gateway 验证，2026-07-07 确认无加载错误） ## 验证统计 - research-lineage: 34处关键词命中（CiteSpace/VOSviewer/共被引/引用爆发/研究前沿/PRISMA） - science-edu-activity: 29处关键词命中（POE/7E/REACT/LIA/UbD/GRRF/IDM/STREAMING/NGSS） - science-edu-template-trainer: 43处关键词命中（Phase 1-7/UDL/形成性评估/基准评分/知识盲区/公平性/成本效益） ## 所有修改文件清单 1. `/root/.openclaw/workspace/skills/research-lineage/SKILL.md` — 文献计量分析增强（CiteSpace/VOSviewer方法） 2. `/root/.openclaw/workspace/skills/science-edu-activity/SKILL.md` — 14种框架、NGSS对齐、UDL、形成",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3721400886774063,
+      "maxScore": 0.3721400886774063,
+      "firstRecalledAt": "2026-07-07T06:38:08.646Z",
+      "lastRecalledAt": "2026-07-07T06:38:08.646Z",
+      "queryHashes": [
+        "59d9f1cfb0ac"
+      ],
+      "recallDays": [
+        "2026-07-07"
+      ],
+      "conceptTags": [
+        "gateway",
+        "science-edu-template-trainer",
+        "science-edu-activity",
+        "example-library.md",
+        "kimi-search",
+        "skill.md",
+        "research-lineage",
+        "1-7/udl/形成性评估/基准评分/知识盲区/公平性/成本效益"
+      ]
+    },
+    "memory:memory/2026-07-04.md:37:53": {
+      "key": "memory:memory/2026-07-04.md:37:53",
+      "path": "memory/2026-07-04.md",
+      "startLine": 37,
+      "endLine": 53,
+      "source": "memory",
+      "snippet": "- 新增质量评分标准（加权多维度：科学准确性 20%、教育有效性 20%、框架完整性 15%、可操作性 15%、UDL 覆盖 10%、形成性评估 10%） - 新增趋势分析、知识盲区分析、公平性与多样性审计、成本效益分析 - 技能文件已更新（但末尾可能有旧内容残留，需确认） ## 已完成的后续工作（2026-07-04 20:44后继续） ### 5. science-edu-template-trainer 旧内容清理 - 确认并清理了400-587行的旧内容残留（旧Phase 5/6/7和旧模板规范） - 替换为增强版的 Integration、Validation、Usage Patterns、Output Specifications、Quality Assurance - 新模板规范包含：14种支持框架、UDL必修、形成性评估嵌入、NGSS对齐、文献验证状态 - 增强版分析报告包含：多维度评分分布、维度细分、框架相关性、UDL影响、改进建议优先级表 ### 6. science-edu-activity 示例库扩展 - 在 example-library.md 中新增5个完整框架示例： - **示例7：PBL** — 校园雨水花园设计（跨学科STEM整合、真实问题解决） - **示例8：SSI** — 基因编辑技术伦理（6种角色扮演、论证框架训练、行动建议） - **示例9：Design Thinking** — 为视障同学设计触感地图（同理心体验、原型迭代、用户测试）",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.35189573764801024,
+      "maxScore": 0.35189573764801024,
+      "firstRecalledAt": "2026-07-07T06:38:08.646Z",
+      "lastRecalledAt": "2026-07-07T06:38:08.646Z",
+      "queryHashes": [
+        "59d9f1cfb0ac"
+      ],
+      "recallDays": [
+        "2026-07-07"
+      ],
+      "conceptTags": [
+        "science-edu-template-trainer",
+        "确认并清理了400-587行的旧内容残留",
+        "5/6/7和旧模板规范",
+        "science-edu-activity",
+        "example-library.md",
+        "新增",
+        "质量",
+        "标准"
+      ]
+    },
+    "memory:memory/2026-09-09.md:1:22": {
+      "key": "memory:memory/2026-09-09.md:1:22",
+      "path": "memory/2026-09-09.md",
+      "startLine": 1,
+      "endLine": 22,
+      "source": "memory",
+      "snippet": "# Memory - 2026-09-09 ## science-edu-activity 技能更新 ### 用户输入 用户分享了一段关于科学传播/科普的理念，要求融入到 science-edu-activity 技能中。 ### 评估结果 | 理念 | 采纳？ | 原因 | |------|--------|------| | 第一次转化（问题逻辑、挂钩点、天钩类比） | ✅ | 现有框架缺少\"公众先关心什么\"这个入口 | | 第二次转化（过程叙事、人的挣扎、意外之美） | ✅ | 现有输出偏\"知识正确\"，缺少故事素材 | | 第三次转化之\"主动露怯\" | ✅ | CoE 体系没要求主动披露局限，值得加 | | 第三次转化之\"共建生态\" | ❌ | 已被 UDL×SDT + 元认知完整覆盖，会冗余 | | \"参与接口\"（动手实验） | ❌ | Activity Matching + UDL 已覆盖 | | 知识的诅咒（三版本） | ✅ | 非常实用的自检机制 | ### 具体改动 1. **Phase 2 步骤2**：新增「问题逻辑转换」，要求回答三个问题：像什么？有什么用？跟我有什么关系？ 2. **Phase 2 步骤5**：新增「科学叙事素材」收集（人的挣扎、意外之美、当代声音） 3. **准确率标注**：新增 ⚠️ 已知局限标注，要求主动披露技术边界 4. **UDL 多元参与**：新增「开放性问题设计」作为参与接口",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.757336557992837,
+      "maxScore": 0.757336557992837,
+      "firstRecalledAt": "2026-09-10T15:53:38.010Z",
+      "lastRecalledAt": "2026-09-10T15:53:38.010Z",
+      "queryHashes": [
+        "3afe7f0afcb9"
+      ],
+      "recallDays": [
+        "2026-09-10"
+      ],
+      "conceptTags": [
+        "science-edu-activity",
+        "用户分享了一段关于科学传播/科普的理念",
+        "science",
+        "edu",
+        "activity",
+        "技能",
+        "更新",
+        "用户"
+      ]
+    },
+    "memory:memory/2026-07-07.md:1:24": {
+      "key": "memory:memory/2026-07-07.md:1:24",
+      "path": "memory/2026-07-07.md",
+      "startLine": 1,
+      "endLine": 24,
+      "source": "memory",
+      "snippet": "--- ## 任务完成记录（16:17 - 16:28） ### 完成的任务 **1. science-edu-activity 技能修改**（已验证头尾完整） - 新增 Phase 0: CIC理论定位（情境-探究-建构三维度检查） - 整合 ACPRE 四维度目标设定（认知功能奠基/科学概念建构/心理情感融入/科学融合应用） - 整合 ACPRE 五步操作流程（激活→组块→实践→反思→拓展） - 新增 ADDIE 开发流程嵌入（分析→设计→开发→实施→评估） - 新增四种活动类型分类（知识传递型/技能培养型/兴趣激发型/综合发展型） - 新增三种教学框架：DIE（Deconstruct→Inquire→Explain）、IADE（Introduce→Activity→Discuss→Extend）、Guided Play - 新增馆校合作三阶段模型（课前预备→馆中探究→课后延伸） - 新增家庭学习Guided Play设计 - 新增混合式学习模式（线上+线下+线上，知识保持率提升18.7%） - 新增 SMEALOS 四维度评估体系（科学素养/科学兴趣/探究能力/学习体验） - 自我纠错清单增加 CIC-ACPRE 检查项 - 框架选择增加理论定位说明（\"本活动采用[框架]框架，基于CIC理论模型设计...\"） **2. science-edu-template-trainer 技能修改**（已验证头尾完整） - 分析维度增加：理论框架（CIC/ACPRE）、认知心理学、活动类型分类",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4940897464752197,
+      "maxScore": 0.4940897464752197,
+      "firstRecalledAt": "2026-09-10T15:53:38.010Z",
+      "lastRecalledAt": "2026-09-10T15:53:38.010Z",
+      "queryHashes": [
+        "3afe7f0afcb9"
+      ],
+      "recallDays": [
+        "2026-09-10"
+      ],
+      "conceptTags": [
+        "science-edu-activity",
+        "情境-探究-建构三维度检查",
+        "认知功能奠基/科学概念建构/心理情感融入/科学融合应用",
+        "知识传递型/技能培养型/兴趣激发型/综合发展型",
+        "知识保持率提升18.7",
+        "科学素养/科学兴趣/探究能力/学习体验",
+        "cic-acpre",
+        "science-edu-template-trainer"
+      ]
+    },
+    "memory:memory/2026-09-05.md:1:23": {
+      "key": "memory:memory/2026-09-05.md:1:23",
+      "path": "memory/2026-09-05.md",
+      "startLine": 1,
+      "endLine": 23,
+      "source": "memory",
+      "snippet": "# 2026-09-05 工作记录 ## 1. GitHub 仓库分析（为改进 science-edu-activity） 用户要求分析 5 个 GitHub 仓库，判断对改进 `science-edu-activity` 技能的价值： | 仓库 | 价值 | 核心可借鉴点 | |------|------|------------| | tanghua-git/skill-instructional-design | **高** | ICAP框架、元认知设计、SDT动机理论、明暗线设计、策略工具映射 | | yang0/edu-agents | **低** | 信息极少，无实质内容 | | Quixon-w/Intelligent-Teaching-Assistant-Platform | **低** | 全栈应用，与skill设计无关 | | zijian-optics/SolaireEPDA | **中低** | 教育绘图(PrimeBrush)、教案自动生成理念 | | EasyRoc/edu-rag | **低** | 本地RAG系统，与活动设计skill无关 | **最有价值的是 skill-instructional-design**，它本身是一个教学设计相关的 OpenClaw Skill，其参考库中的内容直接可迁移。 ## 2. science-edu-activity 技能大改进 基于仓库分析结果，对 `science-edu-activity` 进行了系统性改进： ### 修改的现有文件（4个） - `SKILL.md` — 核心框架：新增",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.8557062298059464,
+      "maxScore": 0.46748341321945186,
+      "firstRecalledAt": "2026-09-10T15:53:38.010Z",
+      "lastRecalledAt": "2026-09-13T18:09:44.567Z",
+      "queryHashes": [
+        "3afe7f0afcb9",
+        "6ce1a81e93cc"
+      ],
+      "recallDays": [
+        "2026-09-10",
+        "2026-09-14"
+      ],
+      "conceptTags": [
+        "science-edu-activity",
+        "yang0/edu-agents",
+        "zijian-optics/solaireepda",
+        "easyroc/edu-rag",
+        "skill-instructional-design",
+        "skill.md",
+        "工作",
+        "记录"
+      ]
+    },
+    "memory:memory/2026-06-11.md:1:23": {
+      "key": "memory:memory/2026-06-11.md:1:23",
+      "path": "memory/2026-06-11.md",
+      "startLine": 1,
+      "endLine": 23,
+      "source": "memory",
+      "snippet": "# 2026-06-11 科技馆辅导员技能内化完成 ## 修改内容：将跨技能整合内容直接内化到 science-museum-educator ### 已完成的内化工作 1. **activity-design.md** — 内化了 `science-edu-activity` 的核心能力： - 5-Stage 知识解构流程（核心概念提取 → 知识点拆解 → 教学序列设计 → 活动形式匹配 → 难度分层） - 标准输出格式（12 章节完整方案骨架） - 多层纠错机制（Layer 1 输入预处理 → Layer 2 生成监控 → Layer 3 输出验证） - 准确性保障（Tier 1/2/3 来源分级、🔬📐🎭 标注规范、皮亚杰认知发展匹配） - 科技馆适配（展厅寻宝、家庭互动、辅导员-观众模式、安全预案、备选方案） 2. **exhibit-knowledge.md** — 内化了 `research-lineage` 的验证机制： - 五类幻觉检测（TF/PAC/IH/PH/SH） - A→B→C→D 验证流程（Semantic Scholar API → 书目交叉 → WebSearch → 时间线一致性） - 摘要获取 5 种途径（按优先级排列） - 文献翻译规范（题目+摘要中文翻译，保留术语，不添加解读） - 溯源标注（无标注/[待验证]/[信息来源有限]/[争议]/[推测]/[摘要未获取]） - 研究脉络梳理（起源期 → 奠基期 → 爆发期 → 分化期 → 当前期） - 验证记录表格",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.46172502040863034,
+      "maxScore": 0.46172502040863034,
+      "firstRecalledAt": "2026-09-10T15:53:38.010Z",
+      "lastRecalledAt": "2026-09-10T15:53:38.010Z",
+      "queryHashes": [
+        "3afe7f0afcb9"
+      ],
+      "recallDays": [
+        "2026-09-10"
+      ],
+      "conceptTags": [
+        "science-museum-educator",
+        "activity-design.md",
+        "science-edu-activity",
+        "5-stage",
+        "1/2/3",
+        "辅导员-观众模式",
+        "exhibit-knowledge.md",
+        "research-lineage"
+      ]
+    },
+    "memory:memory/2026-07-12.md:75:97": {
+      "key": "memory:memory/2026-07-12.md:75:97",
+      "path": "memory/2026-07-12.md",
+      "startLine": 75,
+      "endLine": 97,
+      "source": "memory",
+      "snippet": "- `science-edu-activity`：CIC 三维权模型、ACPRE 四维度五步骤、五阶段工作流（Phase 0-4）、9+ 种教学框架库、SMEALOS 评估体系、形成性评估检查点、UDL 差异化、STEM/STEAM 整合、SSI 框架、NGSS 三维对齐、CoE 文献验证机制、安全指南 ### 文件路径 - `~/.openclaw/workspace/skills/research-lineage/SKILL.md` - `~/.openclaw/workspace/skills/science-edu-activity/SKILL.md` - 参考论文：`/root/.openclaw/workspace/downloads/19f546af-28d2-8a31-8000-0000645cbcd8_ScientistOne_Towards_Human-Level_Autonomous_Research_via_Chain-of-Evidence.pdf` --- ## 2026-07-12 下午新增任务：science-edu-activity 两处结构修改 ### 触发时间 - 用户请求：2026-07-12 17:08:46 GMT+8 ### 修改内容 #### 修改一：SMEALOS + 形成性评估 → 内部反馈机制（不直接输出） **原则**：评估体系仅作为系统内部反馈机制使用，不得直接向用户输出评估结果或评估量规。 已修改位置（8 处以上）： 1. **Phase 3 输出列表**：将 `Formative Assessment",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.46079607307910914,
+      "maxScore": 0.46079607307910914,
+      "firstRecalledAt": "2026-09-10T15:53:38.010Z",
+      "lastRecalledAt": "2026-09-10T15:53:38.010Z",
+      "queryHashes": [
+        "3afe7f0afcb9"
+      ],
+      "recallDays": [
+        "2026-09-10"
+      ],
+      "conceptTags": [
+        "science-edu-activity",
+        "0-4",
+        "stem/steam",
+        "science",
+        "edu",
+        "activity",
+        "cic",
+        "三维"
+      ]
+    },
+    "memory:memory/2026-07-04.md:1:25": {
+      "key": "memory:memory/2026-07-04.md:1:25",
+      "path": "memory/2026-07-04.md",
+      "startLine": 1,
+      "endLine": 25,
+      "source": "memory",
+      "snippet": "# 2026-07-04 记忆 - 深度优化三个科学教育技能 ## 用户请求 深度分析并优化三个技能：research-lineage、science-edu-activity、science-edu-template-trainer。 检索网上先进方法论，整合到技能中，使其在各自领域极其强大。 ## 已完成工作 ### 1. CNKI 自动化检索工具 - 安装了 `cnki-advanced-search` v1.1.0 - 提供 CSSCI 来源期刊的自动化检索能力 - 通过 Chrome DevTools MCP 实现 ### 2. research-lineage 技能增强 - 集成多工具搜索策略（kimi_search、kimi_datasource_call、browser、kimi_fetch） - 新增 7 轮深度搜索工作流（CNKI 深度 + API 深度 + 平台验证） - 新增文献计量分析（影响力分析、共被引网络、引用爆发检测、研究前沿探测、研究空白识别、跨学科连接图） - 新增 PRISMA 式筛选记录（纳入/排除标准、筛选流程、排除原因明细） - 更新输出格式和质量检查清单 ### 3. science-edu-activity 技能增强 - 核心工作流支持 6 种教学法框架：5E、4-Stage、PBL、Design Thinking、SSI、IBL - 新增框架选择指南（含决策树和对比表） - 新增形成性评估检查点设计（对齐性、时机性、多样性、即时反馈） - 新增 UDL 差异化（多元表征、多元表达、多元参与）",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.45977731645107267,
+      "maxScore": 0.45977731645107267,
+      "firstRecalledAt": "2026-09-10T15:53:38.010Z",
+      "lastRecalledAt": "2026-09-10T15:53:38.010Z",
+      "queryHashes": [
+        "3afe7f0afcb9"
+      ],
+      "recallDays": [
+        "2026-09-10"
+      ],
+      "conceptTags": [
+        "网络",
+        "research-lineage",
+        "science-edu-activity",
+        "science-edu-template-trainer",
+        "cnki-advanced-search",
+        "v1.1.0",
+        "kimi-search",
+        "kimi-datasource-call"
+      ]
+    },
+    "memory:memory/2026-09-09.md:20:31": {
+      "key": "memory:memory/2026-09-09.md:20:31",
+      "path": "memory/2026-09-09.md",
+      "startLine": 20,
+      "endLine": 31,
+      "source": "memory",
+      "snippet": "2. **Phase 2 步骤5**：新增「科学叙事素材」收集（人的挣扎、意外之美、当代声音） 3. **准确率标注**：新增 ⚠️ 已知局限标注，要求主动披露技术边界 4. **UDL 多元参与**：新增「开放性问题设计」作为参与接口 5. **Output Format**：新增「分层沟通设计」检查点（一句话/一段话/详细版） 6. **QA Checklist**：新增6项检查点覆盖以上所有改动 7. **新建 README.md / README_zh.md** ### 推送 - 仓库：https://github.com/zhanggenhf-cloud/aistec-skills.git - 提交：a89f9df - 文件：SKILL.md, README.md, README_zh.md",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3928211987018585,
+      "maxScore": 0.3928211987018585,
+      "firstRecalledAt": "2026-09-13T18:09:44.567Z",
+      "lastRecalledAt": "2026-09-13T18:09:44.567Z",
+      "queryHashes": [
+        "6ce1a81e93cc"
+      ],
+      "recallDays": [
+        "2026-09-14"
+      ],
+      "conceptTags": [
+        "一句话/一段话/详细版",
+        "readme.md",
+        "readme-zh.md",
+        "skill.md",
+        "phase",
+        "步骤",
+        "新增",
+        "科学"
+      ]
+    },
+    "memory:memory/2026-09-05.md:20:38": {
+      "key": "memory:memory/2026-09-05.md:20:38",
+      "path": "memory/2026-09-05.md",
+      "startLine": 20,
+      "endLine": 38,
+      "source": "memory",
+      "snippet": "### 修改的现有文件（4个） - `SKILL.md` — 核心框架：新增 Phase 2 步骤（ICAP、元认知、SDT），重写 UDL 为 UDL×SDT 整合框架，新增明暗线检查 - `references/error-correction.md` — 纠错机制：新增 ICAP、明暗线、元认知、SDT 检查项 - `references/output-schema.md` — 输出格式：每个阶段新增 ICAP/元认知/SDT 标注，新增明暗线对齐检查章节 - `references/knowledge-deconstruction.md` — 知识解构：新增动机设计和元认知嵌入 ### 新建参考文件（5个） - `references/icap-framework.md` — ICAP认知参与框架：四档定义、升档策略工具箱、与教学框架对应表 - `references/metacognition-design.md` — 元认知嵌入设计：出声思考、反思卡模板、自我提问清单 - `references/sdt-motivation.md` — 自我决定理论：自主性/胜任感/归属感设计策略、有效失败 - `references/teaching-strategies.md` — 教学策略工具映射：教法≠策略、五大类映射表、速查卡 - `references/edge-cases.md` — 边缘案例手册：10个特殊场景、应急决策树、快速回退卡 ### 改进核心逻辑 从\"活动要有趣\"升级为\"活动要有认知深度\"，从\"提供选择\"升级为\"选择背后有心理需求支撑\"。 ## 3",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3927087336778641,
+      "maxScore": 0.3927087336778641,
+      "firstRecalledAt": "2026-09-13T18:09:44.567Z",
+      "lastRecalledAt": "2026-09-13T18:09:44.567Z",
+      "queryHashes": [
+        "6ce1a81e93cc"
+      ],
+      "recallDays": [
+        "2026-09-14"
+      ],
+      "conceptTags": [
+        "skill.md",
+        "references/error-correction.md",
+        "references/output-schema.md",
+        "icap/元认知/sdt",
+        "references/icap-framework.md",
+        "references/sdt-motivation.md",
+        "自主性/胜任感/归属感设计策略",
+        "references/edge-cases.md"
+      ]
+    },
+    "memory:memory/2026-09-06.md:55:70": {
+      "key": "memory:memory/2026-09-06.md:55:70",
+      "path": "memory/2026-09-06.md",
+      "startLine": 55,
+      "endLine": 70,
+      "source": "memory",
+      "snippet": "- 学术研究：academic-research-hub, academic-research-skills, cnki-advanced-search, research-lineage - 科学教育：science-edu-activity, science-edu-template-trainer, science-museum-educator, openmaic - 设计创意：huashu-design, z-wanghong-handwritten-ppt - 舆情分析：bettafish-opinion-analysis - 教学工具：smart-teacher - 网络：web-access - 系统：find-skills, skillhub-preference, kimiim, time-awareness, worker-safety --- ## 论文相关 - 生成文件：`AISTEC论文_新技能版.md` - 更新了 aistec-skills README（13 个框架，新增 ICAP/元认知/SDT/可见隐线） - 提交：`e18a7cc`",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3857666105031967,
+      "maxScore": 0.3857666105031967,
+      "firstRecalledAt": "2026-09-13T18:09:44.567Z",
+      "lastRecalledAt": "2026-09-13T18:09:44.567Z",
+      "queryHashes": [
+        "6ce1a81e93cc"
+      ],
+      "recallDays": [
+        "2026-09-14"
+      ],
+      "conceptTags": [
+        "网络",
+        "academic-research-hub",
+        "academic-research-skills",
+        "cnki-advanced-search",
+        "research-lineage",
+        "science-edu-activity",
+        "science-edu-template-trainer",
+        "science-museum-educator"
+      ]
+    },
+    "memory:memory/2026-09-06.md:25:60": {
+      "key": "memory:memory/2026-09-06.md:25:60",
+      "path": "memory/2026-09-06.md",
+      "startLine": 25,
+      "endLine": 60,
+      "source": "memory",
+      "snippet": "- 生成交互式 D3.js 图谱（121 节点，114 连接） - 新增 `tools/generate_visualization.py` 自动生成脚本 - 支持搜索、拖拽、缩放、路径高亮 - 最新提交：90867d7 **仓库地址**：https://github.com/zhanggenhf-cloud/aistec-knowledge-graph --- ## OpenMAIC 更新 **从 `25f7908` → `1e10f60`，391 个新提交已拉取。** 主要更新内容： - **专业版**：自动生成对话标题 - **媒体生成**：唯一媒体请求 ID，避免冲突 - **Windows 兼容**：修复 pnpm install 失败 - **安全更新**：Next.js、lodash、sharp CVE 修复 - **PBL v2**：全新场景阶段、评价卡片、里程碑系统 - **工作台**：Pro 徽章、Workspace 入口、折叠面板 - **幻灯片编辑器**：双击插入文本、z-order 调整、元素拾取层 - **视频导出**：完整渲染服务（渲染协调器、预览门控、资源分析） - **新增 Exa 搜索 provider** - 本地路径：`/root/.openclaw/workspace/OpenMAIC` --- ## 用户技能清单（18 个） 用户当前安装的技能： - 学术研究：academic-research-hub, academic-research-skills, cnki-advanced-search, research-",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3776469111442566,
+      "maxScore": 0.3776469111442566,
+      "firstRecalledAt": "2026-09-13T18:09:44.567Z",
+      "lastRecalledAt": "2026-09-13T18:09:44.567Z",
+      "queryHashes": [
+        "6ce1a81e93cc"
+      ],
+      "recallDays": [
+        "2026-09-14"
+      ],
+      "conceptTags": [
+        "d3.js",
+        "tools/generate-visualization.py",
+        "next.js",
+        "z-order",
+        "openclaw/workspace/openmaic",
+        "academic-research-hub",
+        "academic-research-skills",
+        "cnki-advanced-search"
+      ]
+    },
+    "memory:memory/2026-09-06.md:1:35": {
+      "key": "memory:memory/2026-09-06.md:1:35",
+      "path": "memory/2026-09-06.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "# Memory - 2026-09-06 ## AISTEC 知识图谱项目（重大进展） ### 今日完成（2026-09-05 ~ 2026-09-06 凌晨） **任务 1：知识点扩充** - 从 83 个知识点扩充至 121 个（+38 个） - 小学科学：20 → 32（新增水循环、岩石、月相、工程设计等） - 初中物理：41 → 49（新增热学、信息、能源） - 初中化学：12 → 19（新增金属、溶液、化肥、有机物） - 初中生物：10 → 21（新增植物结构、神经系统、免疫、微生物） - 基于 2022 版义务教育课程标准 - 所有节点推送到 aistec-knowledge-graph 仓库 **任务 2：AISTEC 集成** - 修改 `science-edu-activity` SKILL.md Phase 2 - 新增 Step 0 \"Knowledge Graph Query（自动执行）\" - 前置诊断流程：概念识别 → 前置诊断 → 年级适配 → 学习路径 → 误解预加载 - 新增参考文档 `references/knowledge-graph.md`（5 种查询接口 + 3 个使用场景） - 推送到 aistec-skills-publish 仓库 **任务 3：可视化** - 生成 Mermaid 图表（依赖链、思维导图、概念层级、跨学科连接） - 生成交互式 D3.js 图谱（121 节点，114 连接） - 新增 `tools/generate_visualization.py` 自动生成脚本 - 支持搜索、拖拽、缩放、路径高亮 -",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3753360271453857,
+      "maxScore": 0.3753360271453857,
+      "firstRecalledAt": "2026-09-13T18:09:44.567Z",
+      "lastRecalledAt": "2026-09-13T18:09:44.567Z",
+      "queryHashes": [
+        "6ce1a81e93cc"
+      ],
+      "recallDays": [
+        "2026-09-14"
+      ],
+      "conceptTags": [
+        "aistec-knowledge-graph",
+        "science-edu-activity",
+        "skill.md",
+        "references/knowledge-graph.md",
+        "aistec-skills-publish",
+        "d3.js",
+        "tools/generate-visualization.py",
+        "aistec"
+      ]
+    }
+  }
+}

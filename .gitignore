@@ -1,0 +1,42 @@
+# OpenClaw workspace files
+.openclaw/
+.clawhub/
+
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+*.tar.gz
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+
+# IDE and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Large data files
+*.mp4
+*.mp3
+*.wav
+*.zip
+*.rar
+
+# But keep skill references
+!skills/**/references/
+!skills/**/*.md

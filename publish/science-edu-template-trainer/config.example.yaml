@@ -1,0 +1,51 @@
+# Configuration Example for science-edu-template-trainer
+# Copy this file to config.yaml and fill in your settings
+
+analysis:
+  min_plans: 5
+  optimal_plans: 20
+  max_plans: 100
+  
+  dimensions:
+    - scientific_accuracy
+    - educational_effectiveness
+    - framework_completeness
+    - operability
+    - udl_coverage
+    - formative_assessment
+    - safety
+  
+  weights:
+    scientific_accuracy: 0.20
+    educational_effectiveness: 0.20
+    framework_completeness: 0.15
+    operability: 0.15
+    udl_coverage: 0.10
+    formative_assessment: 0.10
+    safety: 0.10
+
+benchmarks:
+  standards:
+    - NGSS
+    - 中国义务教育科学课程标准
+    - PISA
+    - IB_MYP
+  
+  cross_institutional:
+    enabled: false
+
+template:
+  profiles:
+    - generic
+    - museum
+    - school
+    - outdoor
+    - workshop
+  
+  version_format: semantic  # semantic, date
+
+output:
+  include_analysis_report: true
+  include_template_file: true
+  include_recommendations: true
+  language: bilingual

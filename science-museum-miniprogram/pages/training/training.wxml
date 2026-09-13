@@ -1,0 +1,135 @@
+<!-- pages/training/training.wxml -->
+<view class="container">
+  <!-- 步骤条 -->
+  <view class="steps">
+    <view class="step {{index <= currentStep ? 'active' : ''}} {{index < currentStep ? 'completed' : ''}}" 
+          wx:for="{{steps}}" wx:key="*this">
+      <view class="step-dot">{{index < currentStep ? '✓' : index + 1}}</view>
+      <text class="step-label">{{item}}</text>
+      <view class="step-line" wx:if="{{index < steps.length - 1}}"></view>
+    </view>
+  </view>
+
+  <!-- 步骤0: 选择模块 -->
+  <view wx:if="{{currentStep === 0}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">选择能力模块</view>
+      <view class="module-list">
+        <view class="module-row" wx:for="{{modules}}" wx:key="key" bindtap="selectModule" data-key="{{item.key}}">
+          <view class="module-row-icon" style="background: {{item.color}}15">{{item.icon}}</view>
+          <view class="module-row-info">
+            <view class="module-row-name">{{item.name}}</view>
+            <view class="module-row-desc">{{item.desc}}</view>
+          </view>
+          <text class="list-arrow">›</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 步骤1: 选择任务 -->
+  <view wx:if="{{currentStep === 1 && selectedModule}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">
+        <text style="margin-right: 12rpx;">{{selectedModule.icon}}</text>
+        {{selectedModule.name}}
+      </view>
+      <view class="card-subtitle">选择练习类型</view>
+      <view class="task-list">
+        <view class="task-item" wx:for="{{selectedModule.tasks}}" wx:key="type" 
+              bindtap="selectTask" data-type="{{item.type}}">
+          <view class="task-type">类型{{item.type}}</view>
+          <view class="task-name">{{item.name}}</view>
+          <view class="task-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+    <button class="btn btn-outline" bindtap="goBack" style="margin-top: 20rpx;">返回模块选择</button>
+  </view>
+
+  <!-- 步骤2: 练习中 -->
+  <view wx:if="{{currentStep === 2 && question}}" class="animate-fade-in">
+    <view class="card">
+      <view class="card-title">{{selectedTask.name}}</view>
+      <view class="question-box">
+        <view class="question-label">题目</view>
+        <view class="question-content">{{question.task || question.scenario || question.original || question.plan}}</view>
+        
+        <view class="question-meta" wx:if="{{question.exhibit || question.audience || question.exhibits}}">
+          <view class="meta-tag" wx:if="{{question.exhibit}}">
+            <text class="tag tag-primary">展品：{{question.exhibit}}</text>
+          </view>
+          <view class="meta-tag" wx:if="{{question.audience}}">
+            <text class="tag tag-secondary">受众：{{question.audience}}</text>
+          </view>
+          <view class="meta-tag" wx:if="{{question.duration}}">
+            <text class="tag tag-success">时长：{{question.duration}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">你的回答</view>
+      <textarea class="textarea-field" 
+                placeholder="请在此输入你的回答..." 
+                bindinput="onAnswerInput"
+                value="{{userAnswer}}"
+                maxlength="3000"></textarea>
+      <button class="btn btn-primary" bindtap="submitAnswer" disabled="{{isSubmitting}}">
+        {{isSubmitting ? '评分中...' : '提交答案'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 步骤3: 结果 -->
+  <view wx:if="{{currentStep === 3 && evaluation}}" class="animate-fade-in">
+    <!-- 总分 -->
+    <view class="card score-card">
+      <view class="score-circle">
+        <text class="score-number">{{evaluation.average}}</text>
+        <text class="score-total">/5</text>
+      </view>
+      <view class="score-label">综合评分</view>
+      <view class="stars">
+        <text class="star {{index < Math.round(evaluation.average) ? 'active' : ''}}" wx:for="[1,2,3,4,5]" wx:key="*this">★</text>
+      </view>
+    </view>
+
+    <!-- 维度得分 -->
+    <view class="card">
+      <view class="card-title">维度得分</view>
+      <view class="dimension-list">
+        <view class="dimension-item" wx:for="{{evaluation.scores}}" wx:key="dimension">
+          <view class="dimension-header">
+            <text class="dimension-name">{{item.dimension}}</text>
+            <text class="dimension-score">{{item.score}}分</text>
+          </view>
+          <view class="dimension-bar">
+            <view class="dimension-fill" style="width: {{item.score * 20}}%; background: {{item.score >= 4 ? '#52c41a' : item.score >= 3 ? '#faad14' : '#ff4d4f'}}"></view>
+          </view>
+          <text class="dimension-comment">{{item.comment}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 总结与建议 -->
+    <view class="card">
+      <view class="card-title">AI评价</view>
+      <text class="summary-text">{{evaluation.summary}}</text>
+      <view class="suggestions">
+        <view class="suggestion-title">改进建议：</view>
+        <view class="suggestion-item" wx:for="{{evaluation.suggestions}}" wx:key="*this">
+          <text class="suggestion-dot">•</text>
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-buttons">
+      <button class="btn btn-outline" bindtap="restart">重新选择</button>
+      <button class="btn btn-primary" bindtap="nextQuestion">再来一题</button>
+    </view>
+  </view>
+</view>
