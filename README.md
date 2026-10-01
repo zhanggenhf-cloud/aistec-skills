@@ -19,11 +19,11 @@ The framework integrates:
 ## Skills
 
 ### 1. `research-lineage`
-Research lineage intelligent engine. Integrates CiteSpace/VOSviewer bibliometric analysis with PRISMA systematic screening and CoE citation verification.
+Research lineage intelligent engine. Applies bibliometric analysis methods informed by CiteSpace/VOSviewer (clustering quality, betweenness centrality, burst detection), combined with PRISMA-style screening records and CoE citation verification.
 
 **Key features:**
-- 6-round joint retrieval (WebSearch + arXiv + Google Scholar + Semantic Scholar + CrossRef + CNKI browser automation)
-- PI citation graph construction (seed papers → 2-hop citation graph → elite pool via LLM dual scoring)
+- 6-round joint retrieval (web search + arXiv/Google Scholar via API + CNKI browser automation), plus supplementary verification rounds
+- Citation graph construction (seed papers → 2-hop citation graph → elite pool via LLM scoring into Core + Adjacent tiers)
 - CoE 6-step verification pipeline (A→B→C→D→E→F, internal workflow): graph building → API screening → bibliographic cross-check → multi-API cross-verification → LLM summary entailment → timeline consistency + upstream contamination detection
 - 5-class hallucination detection (TF/PAC/IH/PH/SH)
 
@@ -34,7 +34,7 @@ Science education activity plan generator. Grounded in constructivist learning t
 - **Dual-format output** — every activity plan includes both (1) a human-readable Markdown lesson plan and (2) a machine-parseable page-level executable scheme ready for digitization (OpenMAIC import, interactive classroom deployment, etc.)
 - 4 page types in executable scheme: `slide` (SL), `interactive` (IA), `quiz` (QZ), `pbl` (PB) — each with learning contract, interaction design, assessment, scaffolding, pedagogy tags, narration, and timing
 - 13 pedagogical frameworks auto-selected by decision tree (5E, 7E, 4-Stage, PBL, Design Thinking, IBL, POE, REACT, LIA, UbD, GRRF, IDM, Guided Play)
-- **Knowledge Graph integration** — automatic prerequisite diagnosis via AISTEC Knowledge Graph (121 nodes across primary science, junior physics/chemistry/biology) before activity design
+- **Knowledge Graph integration** — automatic prerequisite diagnosis via AISTEC Knowledge Graph before activity design
 - **UDL × SDT integrated design** — fuses Universal Design for Learning with Self-Determination Theory so "multiple means of engagement" is backed by psychological need satisfaction
 - **ICAP cognitive engagement assessment** — assigns P/A/C/I target levels per activity stage, designs upshifting strategies to ensure cognitive engagement progression
 - **Metacognition embedding** — marks think-aloud prompts, reflection cards, and self-questioning checkpoints in the activity flow
@@ -49,11 +49,11 @@ Science education activity plan generator. Grounded in constructivist learning t
 Template extraction and migration learning engine. Converts historical activity plans into standardized templates via 9-phase multi-dimensional quality analysis.
 
 **Key features:**
-- 9-phase pipeline: input validation → structural analysis → linguistic analysis → benchmarking → statistical aggregation → knowledge gap audit → template generation → scenario adaptation → validation
+- 9-phase pipeline: input ingestion & validation → individual analysis → content analysis & linguistic assessment → quality scoring & benchmarking → pattern aggregation → gap analysis & equity audit → template generation → integration with science-edu-activity → validation & delivery
 - Pedagogical framework analysis (theory basis, learning objectives, assessment alignment)
 - Fairness audit (cultural responsiveness, gender equity, accessibility, socioeconomic inclusion)
 - Cost-benefit analysis (per-capita cost, time efficiency, educational ROI)
-- Multi-scenario optimization (Museum / School / Outdoor / Workshop)
+- Context-aware customization (museums, schools, outdoor programs, workshops)
 
 ## Verified Frameworks
 
