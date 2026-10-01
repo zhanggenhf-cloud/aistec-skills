@@ -83,6 +83,35 @@ These are OpenClaw AgentSkills. Place each skill directory under your OpenClaw s
 - Access to: Semantic Scholar API, arXiv API, CrossRef API, CNKI (via browser automation)
 - For `science-edu-template-trainer`: pandoc (for Word/PDF conversion)
 
+## Platform Dependencies
+
+Two skills contain tool calls specific to the Kimi Claw (Moonshot AI) platform. All pedagogical frameworks and design logic are platform-agnostic — only the tool invocation syntax needs adaptation when porting.
+
+### `research-lineage` — Heavy dependency (29 references in SKILL.md)
+
+The entire CoE verification pipeline routes through four Kimi-specific tools:
+
+| Tool | Function | Suggested replacement |
+|------|----------|----------------------|
+| `kimi_search` | Web search | Any search tool (`web_search`, Tavily, Exa, etc.) |
+| `kimi_datasource_call` + `kimi_datasource_get_desc` | Academic database queries (arXiv, Google Scholar) | Direct API calls (arXiv API, Semantic Scholar API) or platform equivalents |
+| `kimi_fetch` / `web_fetch` | Direct URL content fetching | Any fetch tool (`requests`, `playwright`, `firecrawl`, etc.) |
+
+**Porting method:** Rewrite only the tool routing table in SKILL.md (search strategy section), replacing each `kimi_*` call with your platform's equivalent. The CoE 6-step verification logic, hallucination detection, and citation graph construction are entirely platform-independent.
+
+### `science-edu-activity` — Light dependency (10 references)
+
+Tool call examples appear in two places:
+
+1. **SKILL.md** — API call examples for literature retrieval (7 references)
+2. **`references/accuracy-assurance.md` and `references/knowledge-deconstruction.md`** — tool names in verification workflows (3 references)
+
+**Porting method:** These are example-level references. Replace `kimi_search` with your search tool, `kimi_datasource_call` with your academic API wrapper, and `kimi_fetch` with your fetch tool. The 5-stage knowledge deconstruction, 13-framework decision tree, UDL × SDT design, and all pedagogical logic require zero changes.
+
+### No dependency
+
+`science-edu-template-trainer` — fully platform-agnostic.
+
 ## License
 
 MIT
