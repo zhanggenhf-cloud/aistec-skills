@@ -12,6 +12,8 @@ Transforms scientific concepts into engaging educational experiences through:
 - **UDL × SDT Integration** — Universal Design for Learning merged with Self-Determination Theory to support diverse learners while nurturing intrinsic motivation
 - **ICAP Cognitive Engagement** — Ensures activity progression climbs from Passive → Active → Constructive → Interactive
 - **Chain-of-Evidence (CoE) Architecture** — Zero-hallucination citation validation through multi-API cross-verification (Semantic Scholar, arXiv, CrossRef, Google Scholar, CNKI)
+- **Dual-Format Output** — Every plan generates simultaneously as a standard Markdown lesson plan AND a page-level executable activity scheme (SL/IA/QZ/PB page types with learning contracts, ICAP levels, NGSS alignment, and TTS-ready narration)
+- **Knowledge Graph Integration** — Automatic prerequisite diagnosis, grade-appropriateness checks, and misconception pre-loading via AISTEC Knowledge Graph queries
 
 ## Supported Domains
 
@@ -33,6 +35,7 @@ Physics · Chemistry · Biology · Astronomy · Geography · Interdisciplinary S
 - Museum-School Partnership guide (when applicable)
 - Family Learning guide (when applicable)
 - Assessment rubrics with UDL alternatives
+- Page-level executable scheme with per-page ICAP/NGSS/metacognition/SDT annotations
 
 ## Key Design Principles
 
