@@ -83,6 +83,35 @@ AI 驱动的科学教育活动智能创作框架
 - 可访问：Semantic Scholar API、arXiv API、CrossRef API、知网（通过浏览器自动化）
 - `science-edu-template-trainer` 需要：pandoc（用于 Word/PDF 转换）
 
+## 平台依赖说明
+
+两个技能包含 Kimi Claw（月之暗面）平台专属的工具调用。所有教学框架和设计逻辑均为平台无关的，移植时仅需适配工具调用语法。
+
+### `research-lineage` — 重度依赖（SKILL.md 中 29 处）
+
+整个 CoE 验证流程通过四个 Kimi 专属工具路由：
+
+| 工具 | 功能 | 建议替代方案 |
+|------|------|------------|
+| `kimi_search` | 网页搜索 | 任意搜索工具（`web_search`、Tavily、Exa 等） |
+| `kimi_datasource_call` + `kimi_datasource_get_desc` | 学术数据库查询（arXiv、Google Scholar） | 直接调用 API（arXiv API、Semantic Scholar API）或平台等效工具 |
+| `kimi_fetch` / `web_fetch` | 直访网页内容 | 任意抓取工具（`requests`、`playwright`、`firecrawl` 等） |
+
+**移植方法：** 仅需改写 SKILL.md 中的工具路由表（检索策略章节），将 `kimi_*` 调用替换为目标平台的等效工具。CoE 六步验证逻辑、五类幻觉检测和引用图构建完全平台无关。
+
+### `science-edu-activity` — 轻度依赖（10 处）
+
+工具调用示例出现在两处：
+
+1. **SKILL.md** — 文献检索的 API 调用示例（7 处）
+2. **`references/accuracy-assurance.md` 和 `references/knowledge-deconstruction.md`** — 验证流程中的工具名（3 处）
+
+**移植方法：** 属于示例级别引用，直接替换工具名即可：`kimi_search` → 你的搜索工具，`kimi_datasource_call` → 你的学术 API 封装，`kimi_fetch` → 你的抓取工具。五阶段知识解构、13 框架决策树、UDL × SDT 设计等全部教学逻辑零改动。
+
+### 无依赖
+
+`science-edu-template-trainer` — 完全平台无关。
+
 ## 许可证
 
 MIT
