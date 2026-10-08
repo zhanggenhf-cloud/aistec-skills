@@ -40,3 +40,24 @@ temp/
 # But keep skill references
 !skills/**/references/
 !skills/**/*.md
+
+# --- 2026-10-09 cleanup: workspace runtime artifacts, not part of skills ---
+/downloads/
+/physics_pdf_imgs/
+/memory/
+/opendraft.skill
+/demo/
+/reports/
+/research_outputs/
+/museum-sim/
+/science-museum-miniprogram/
+
+# OpenClaw agent workspace files (belong to local workspace, not the repo)
+/AGENTS.md
+/BOOTSTRAP.md
+/HEARTBEAT.md
+/IDENTITY.md
+/MEMORY.md
+/SOUL.md
+/TOOLS.md
+/USER.md
